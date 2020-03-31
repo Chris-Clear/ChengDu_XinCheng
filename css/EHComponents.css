@@ -1,0 +1,163 @@
+/*公共头部*/
+
+.curHeader {
+    height: .7rem;
+    line-height: .7rem;
+    text-align: center;
+    position: relative;
+    color: #000000;
+}
+
+.curHeader h1 {
+    font-size: 0.31rem;
+    width: calc(100% - 3rem);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: auto;
+}
+
+.curHeader .goBack {
+    width: .58rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../img/slice/goback.png) no-repeat 0.25rem center;
+    background-size: .12rem 0.24rem;
+    cursor: pointer;
+}
+
+/*富文本*/
+
+.fwContent {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    color: #666666;
+    padding: 0.2rem;
+}
+
+.fwContent img {
+    width: 100% !important;
+}
+
+/* 默认弹框 */
+
+.around-center {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    align-items: center;
+    -webkit-justify-content: space-around;
+    -webkit-align-items: center;
+}
+
+.maskBox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.defalutModal {
+    width: 4.8rem;
+    height: 2.68rem;
+    background-color: #ffffff;
+    font-size: 0.24rem;
+    border-radius: 0.1rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -2.4rem;
+    margin-top: -1.34rem;
+}
+
+.mesDiv {
+    padding: 0.2rem;
+    height: 1.9rem;
+    color: #999999;
+}
+.overflow{
+    overflow :auto
+}
+.btns {
+    height: 0.74rem;
+    line-height: 0.74rem;
+    text-align: center;
+    border-top: 1px solid #eeeeee;
+    width: 50%;
+    color: #999999;
+}
+
+.tipsbtn {
+    height: 0.74rem;
+    line-height: 0.74rem;
+    text-align: center;
+    border-top: 1px solid #eeeeee;
+}
+
+.r_btn {
+    border-left: 1px solid #eeeeee;
+    color: #000000;
+}
+
+/* 拨号弹窗 */
+
+.w-column-center {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.callImg {
+    width: 0.52rem;
+    height: 0.5rem;
+    background-image: url('../img/slice/telIcon.png')
+}
+
+/*公共尾部*/
+
+.footerNavArea {
+    width: 100%;
+    height: 0.92rem;
+    background-color: #ffffff;
+    box-shadow: 0rem 0rem 0.1rem 0rem rgba(0, 0, 0, 0.12);
+}
+
+.footerNav {
+    height: .72rem;
+}
+
+.footerNavArea .footerNav .navPic {
+    width: .35rem;
+    height: .35rem;
+}
+
+.footerNavArea .footerNav span {
+    font-size: .20rem;
+    color: #999;
+}
+
+.navAc {
+    color: #386cff !important;
+}
+
+/* 暂无数据 */
+.noData{
+    margin-top: .9rem;
+}
+
+/* 返回顶部 */
+.btPosition {
+    position: fixed;
+    right: 0.2rem;
+    bottom: 1.7rem;
+    z-index: 99;
+}

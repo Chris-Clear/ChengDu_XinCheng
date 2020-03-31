@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h4>这只是一个Vue组件库页面</h4>
+		<!--上传图片模块-->
+		<template id="uploadimg">
+			<div :class="'_uploadImg _num'+(rows>=0?rows:1)">
+				<div :class="autoheight?'_imgShow autoheight':'_imgShow'"  v-for="(item,index) in num||1">
+					<span class="dele" @click="deleImg($event,index,(holderimg||'../img/slice/add.png'))"><img src="../img/slice/_dele.png"/></span>
+					<div :class="autoheight?'img':'img p-t-full'" ><img :src="holderimg||'../img/slice/add.png'" @click="uploadimg($event,index)" :selectmore="selectmore?(num<=9?num:9):false"/></div>
+				</div>
+				<input type="hidden" :name="name" value=""/>
+			</div>
+		</template>
+		
+		<!--个人中心导航列表-->
+		<template id="links">
+			<div class="personCenter_links border-t-eee border-b-eee">
+				<a :href="links[index]" class="links_item flex_dom flex_item_mid l-h-08rem" v-for="(item,index) in name.split('/')">
+					<p class="flex_1"><img v-if="tagrule" :src="tagrule.split('@')[0]+(index+1)+'.'+tagrule.split('@')[1]" class="m-r-20r"/><span v-text="item"></span></p><i class="fa fa-angle-right font30 color-999"></i>
+				</a>
+			</div>
+		</template>
+ 
+		
+		
+		<!--底部导航栏-->
+		<template id="footer_nav">
+			<footer :class="(color&&color.indexOf('#')<0)?color+' flex_dom _bottomNav text-center':'flex_dom _bottomNav text-center'" :style="(color&&color.indexOf('#')>=0)?('color:'+color):''">
+				<label class="flex_1 change color-parent" v-for="(item,index) in name||default_name"><input type="radio" name="footer_nav" :checked="(active||'0')==index"   @click="goTo((href?href[index]:default_href[index])||'')">
+				<img :src="(tag||default_tag).split('@')[0]+(index+1)+'.'+(tag||default_tag).split('@')[1].split('-')[0]"/>
+				<img :src="(tag||default_tag).split('@')[0]+(index+1)+(tag||default_tag).split('@')[1].split('-')[1]+'.'+(tag||default_tag).split('@')[1].split('-')[0]"/>
+				<p :class="(color&&color.indexOf('#')<0&&((active||'0')==index))?color:''" :style="(color&&color.indexOf('#')>=0&&(active||'0')==index)?('color:'+color):''" v-text="item"></p></label>
+			</footer>
+		</template>
+
+	</body>
+
+</html>
