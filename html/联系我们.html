@@ -23,17 +23,35 @@
 </head>
 
 <body>
-    <section id="app" class="main hgt_full flex_column font24r">
-        <myheader name="标题" isback="true"></myheader>
-        <div class="flex_1 overflow_auto">
-			
 
-            
-            <richtext v-bind:content="content"></richtext>
-        </div>
-
-        <myfooter index="1" v-bind:count="1"></myfooter>
-    </section>
+<div class="c-nav">
+	<div class="container navFlex">
+		<div class="flexItem">
+			<img  class="logo" src="../img/slice/logo.png" />
+		</div>
+		
+		<div class="flexItem hiden">
+			<img class="btnImg" src="../img/news-01.jpg" />
+		</div>
+		<div class="flexItem show">
+			<ul>
+				<li><a href="#">首页</a></li>
+				<li><a href="#">企业介绍</a></li>
+				<li><a href="#">产品展示</a></li>
+				<li><a href="#">生产工艺</a></li>
+				<li><a href="#">服务支持</a></li>
+				<li><a href="#">人才招聘</a></li>
+                <li><a href="#">新闻动态</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">注册/登录</a></li>
+                <li><a href="#">中/ENG</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+    <!-- <section id="app" class="main hgt_full flex_column font24r">
+       
+    </section> -->
 </body>
 <script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
 <script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
@@ -52,9 +70,37 @@
         },
         created: function() {
 
-            vant.Toast('提示');
+            // vant.Toast('提示');
         }
     })
+
+//用于判断导航栏的状态
+var toggle = true;
+ 
+ //导航栏按钮
+ $('.btnImg').click(function() {
+     if (toggle) {
+         $('.btnImg').css("border", "1px solid #b0ccf3");
+         toggle = false
+     } else {
+         $('.btnImg').css("border", "1px solid transparent");
+         toggle = true;
+     }
+     $(".show").slideToggle(300);
+ })
+  
+ //窗口大小发生改变
+ $(window).resize(function() {
+     //获取窗口宽度
+     var windSize = $(window).width();
+  
+     if (windSize > 576) {
+         $(".show").slideDown(0);
+     } else {
+         $(".show").slideUp(0);
+     }
+ });
+
 </script>
 
 
