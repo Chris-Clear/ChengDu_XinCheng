@@ -157,7 +157,10 @@ textarea, input ,button{
 
  
 .container{max-width:1140px;margin:0 auto;}
- 
+.Content{
+	max-width:1140px;
+	margin:0 auto;
+}
 .c-nav .show{
 	display: inline-block;
 }
@@ -186,7 +189,7 @@ textarea, input ,button{
 	padding-left: 0px;
 }
 .c-nav ul li{
-	padding: 15px 0px 15px 0px;
+	padding: 20px 0px;
 	margin-left: 30px;
 	display: inline-block;
 }
@@ -203,8 +206,8 @@ textarea, input ,button{
 	height:40px;
 }
 .c-nav .btnImg{
-	height: 20px;
-	width: 25px;
+	/* height: 20px; */
+	width: .35rem;
 	padding: 3px 8px 3px 8px;
 	box-sizing: content-box;
 	border: 1px solid transparent;
@@ -226,17 +229,18 @@ textarea, input ,button{
 }
 @media screen and (max-width:576px){
 	.c-nav{
-		background-color:rgba(176,204,243,0.8);
-		padding: 10px 0px 10px 0px;
-		opacity: 0.9;
+		padding: .2rem;
+		/* height: 1rem; */
+		
 	}
 	.c-nav .navFlex{
 		flex-wrap:wrap;
-		font-size: 20px;
+		/* height: 1rem; */
 		justify-content: space-between;
 	}
 	.c-nav .logo{
-		height: 30px;
+		height: .5rem;
+		width: 2rem;
 	}
 	.c-nav ul li{
 		padding-top: 10px;
@@ -261,4 +265,9 @@ textarea, input ,button{
 		text-align: center;
 		display: none;
 	}
+}
+.commonBanner{
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
