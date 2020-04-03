@@ -1,0 +1,102 @@
+.index_banner {
+  width: 100%;
+  height: 9rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.2s ease-in-out;
+}
+.index_banner .con {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.index_banner .con .btn_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.index_banner .con .btn_list button {
+  padding: 0rem 0.25rem;
+  height: 0.54rem;
+  border-radius: 0.27rem;
+  font-size: 0.18rem;
+  color: #333333;
+  background-color: #ffffff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.15rem 0.2rem 0rem 0;
+}
+.index_banner .con .btn_list button:last-of-type {
+  margin-right: 0 ;
+}
+.index_banner .con .btn_list button > img {
+  width: 0.24rem;
+  margin-right: 0.1rem;
+}
+.index_banner .con .btn_list .tel {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.index_banner .con .btn_list .tel img {
+  width: 0.5rem;
+  margin-right: 0.1rem;
+}
+.index_banner .con .btn_list .tel p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.index_banner .con .btn_list .tel p > span {
+  font-size: 0.24rem;
+  line-height: 1.2;
+  color: #ffffff;
+}
+.index_banner .title {
+  font-size: 0.48rem;
+  color: #ffffff;
+}
+.index_banner .title > span {
+  display: block;
+}
+@media screen and (max-width: 576px) {
+  .index_banner {
+    height: 3.4rem;
+    background-size: cover;
+  }
+  .index_banner .con .btn_list {
+    justify-content: center;
+    margin-bottom: 0.17rem;
+  }
+  .index_banner .con .btn_list button {
+    font-size: 0.24rem;
+  }
+  .index_banner .con .btn_list button > img {
+    width: 0.35rem;
+  }
+  .index_banner .con .btn_list .tel {
+    display: none;
+  }
+  .index_banner .title {
+    font-size: 0.28rem;
+    text-align: center;
+  }
+  .index_banner .title > span {
+    display: inline-block;
+  }
+}
+.flex-column-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+@media screen and (min-width: 576px) {
+  html {
+    font-size: 5.20833333vw !important;
+  }
+}
