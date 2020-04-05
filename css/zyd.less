@@ -1,9 +1,15 @@
+.main{
+    height: 100%;
+}
+//分界点 移动端设备宽度为:576px
+@mobile_device:576px;
+//首页 新城
 .index_banner{
     width: 100%;
     height: 9rem;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     transition: all .2s ease-in-out;
     .con{
         height: 100%;
@@ -24,6 +30,7 @@
                 justify-content: center;
                 align-items: center;
                 margin: .15rem .20rem 0rem 0;
+                cursor: pointer;
                 &:last-of-type{
                     margin-right:0 ;
                 }
@@ -62,7 +69,7 @@
             display: block;
         }
     }
-    @media screen and (max-width:576px){
+    @media screen and (max-width:@mobile_device){
         &{
             height: 3.4rem;
             background-size: cover;
@@ -71,7 +78,9 @@
                     justify-content: center;
                     margin-bottom: .17rem;
                     button{
+                        padding:0rem .22rem;
                         font-size: .24rem;
+                        margin: .15rem .15rem 0 0;
                         &>img{
                             width: 0.35rem;
                         }
@@ -92,14 +101,127 @@
         }
     }
 }
+.index_about{
+    margin-top: 1rem !important;
+    &>.left_img{
+        width: 8.4rem;
+        height: 5.9rem;
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        float: left;
+    }
+    .desc{
+        width: 7.7rem;
+        height: 6rem;
+        float:right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        &>*{
+            margin-bottom: .4rem;
+        }
+        .title{
+            &>p{
+                display: none;
+            }
+            .zh{
+                width:2.63rem
+            }
+            .en{
+                width:4.44rem
+            }
+            .en+p{
+                display: block;
+                font-size: .36rem;
+                color: #333333;
+                line-height: 1;
+                margin-top: .4rem;
+            }
+        }
+        .content{
+            font-size: .14rem;
+            color: #666666;
+            max-height: 2.20rem;
+            overflow: hidden;
+        }
+        .more_btn{
+            width: .94rem;
+            height: .11rem;
+            cursor: pointer;
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            padding: 0 .2rem;
+            margin-top: 1.9rem !important;
+            position: relative;
+            &>.left_img{
+                width: 100%;
+                height: 3.4rem;
+                float: none;
+            }
+            .desc{
+                width: 100%;
+                height: auto;
+                display: block;
+                float: none;
+                .title{
+                   position: absolute;
+                   top: -1.3rem;
+                   left: .2rem;
+                   .zh{
+                        width:1.32rem
+                    }
+                    .en{
+                        width:2.22rem
+                    }
+                    .en+p{
+                        font-size: .3rem;
+                        margin-top: .13rem;
+                    }
+                }
+                .content{
+                    font-size: .20rem;
+                    color: #666666;
+                    -webkit-line-clamp: 7;
+                    max-height: 2.10rem;
+                    overflow: hidden;
+                    margin-top: .2rem;
+                    text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                }
+                .more_btn{
+                    width: .94rem;
+                    cursor: pointer;
+                }
+            }
+            
+            
+        }
+    }
+}
 .flex-column-end{
     display: flex;
     flex-direction: column;
     justify-content:flex-end;
 }
+
 @width:100vw;
-@media screen and (min-width:576px){
-	html{font-size: @width/19.20 !important};
+@media screen and (min-width:@mobile_device){
+    html{font-size: @width/19.20 !important};
+    .container{
+        max-width: calc(100% - 2.10rem);
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width:1200px){
+    
 }
 @media screen and (max-width:1200px){
 }
