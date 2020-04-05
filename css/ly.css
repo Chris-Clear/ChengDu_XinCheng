@@ -195,12 +195,25 @@ textarea, input ,button{
 }
 .c-nav ul li a{
 	color: #333;
-	padding-bottom: 2px;
+	padding-bottom: 8px;
 	text-decoration: none;
-	border-bottom: 3px solid transparent;
+	/* border-bottom: 3px solid transparent; */
+	position: relative;
 }
 .c-nav ul li a:hover{
 	border-bottom: 2px solid #66cbff;
+}
+.c-nav ul li a:hover::after{
+	content: '';
+	position: absolute;
+	width:0;
+    height:0;
+	border-right:4px solid transparent;
+	border-left:4px solid transparent;
+	border-bottom:4px solid #66cbff;
+	bottom: 0;
+	left: 50%;
+	margin-left: -3px;
 }
 .c-nav .logo{
 	height:40px;
@@ -270,4 +283,36 @@ textarea, input ,button{
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+.addArea{
+	margin-top: 1.1rem;
+	height: auto;
+	padding: .2rem;
+	border-radius: .05rem;
+	background-color: #ffffff;
+	box-shadow: 0rem 0rem 0.1rem 0rem 
+		rgba(0, 0, 0, 0.2);
+}
+.addLeft{
+	width: 50%;
+	/* display: inline-block; */
+	/* height: 3.6rem; */
+	padding: .58rem 1.35rem;
+	float: left;
+}
+.addRight{
+	width: 50%;
+	height: 3.6rem;
+	float: left;
+}
+@media screen and (max-width:576px){
+	.addLeft{
+		width: 100%;
+		/* height: 3.6rem; */
+		padding: .2rem .35rem;
+	}
+	.addRight{
+		width: 100%;
+		height: 3.6rem;
+	}
 }
