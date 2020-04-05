@@ -3,6 +3,44 @@
 }
 //分界点 移动端设备宽度为:576px
 @mobile_device:576px;
+//主题色
+@primary-color:#66cbff;
+@font-face{
+    font-family: 'YouSheBiaoTiHei';
+    src: url('../fonts/YouSheBiaoTiHei-2.ttf');
+}   
+// 所有标题
+.spreadhead{
+    &>p{
+        display: none;
+    }
+     .zh,.en{
+         font-family: 'YouSheBiaoTiHei';
+         font-size: .72rem;
+         color: #0172ff;
+         display: block;
+         line-height: 1;
+     }
+     .en~.en-t{
+        display: block;
+        font-size: .36rem;
+        color: #333333;
+        line-height: 1;
+        margin-top: .4rem;
+     }
+     @media screen and (max-width:@mobile_device){
+         &{
+            .zh,.en{
+                font-size: .3rem;
+            }
+            .en~.en-t{
+                font-size: .3rem;
+                margin-top: .12rem;
+            }
+         }
+     }
+
+ } 
 //首页 新城
 .index_banner{
     width: 100%;
@@ -122,24 +160,6 @@
         &>*{
             margin-bottom: .4rem;
         }
-        .title{
-            &>p{
-                display: none;
-            }
-            .zh{
-                width:2.63rem
-            }
-            .en{
-                width:4.44rem
-            }
-            .en+p{
-                display: block;
-                font-size: .36rem;
-                color: #333333;
-                line-height: 1;
-                margin-top: .4rem;
-            }
-        }
         .content{
             font-size: .14rem;
             color: #666666;
@@ -150,14 +170,15 @@
             width: .94rem;
             height: .11rem;
             cursor: pointer;
+            background-image:url(../img/slice/index_more.png);
             background-position:center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
         }
     }
     @media screen and (max-width:@mobile_device){
         &{
-            padding: 0 .2rem;
+            padding: 0 .25rem;
             margin-top: 1.9rem !important;
             position: relative;
             &>.left_img{
@@ -168,9 +189,8 @@
             .desc{
                 width: 100%;
                 height: auto;
-                display: block;
                 float: none;
-                .title{
+                .spreadhead{
                    position: absolute;
                    top: -1.3rem;
                    left: .2rem;
@@ -180,7 +200,7 @@
                     .en{
                         width:2.22rem
                     }
-                    .en+p{
+                    .en~.en-t{
                         font-size: .3rem;
                         margin-top: .13rem;
                     }
@@ -197,8 +217,13 @@
                     display: -webkit-box;
                 }
                 .more_btn{
-                    width: .94rem;
+                    align-self: center;
+                    width: 2.06rem;
+                    height: .7rem;
                     cursor: pointer;
+                    background-color: @primary-color;
+                    background-size: auto;
+                    background-image:url(../img/slice/index_more_mobile.png);
                 }
             }
             
@@ -206,6 +231,146 @@
         }
     }
 }
+.index_xwdt{
+    margin-top: 1rem !important;
+    .tabs{
+        float: left;
+        width: 4.57rem;
+        .spreadhead{
+            margin-bottom: 1rem;
+        }
+         .tabs-item{
+            width: 2.85rem;
+            height: .6rem;    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e6e6e6;
+            font-size: .24rem;
+            color: #666666;
+            margin-bottom: .3rem;
+            &.active{
+                background-color: @primary-color;
+                color: #ffffff;
+            }
+         }
+    }
+    .tabs-body{
+        width: 12rem;
+        float: right;
+        display: flex;
+        justify-content: space-between;
+        .picture{
+            width: 4.7rem;
+            height: 6.7rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        ul{
+            li{
+                width: 6.8rem;
+                height: 1.68rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #f7f7f7;
+                transition: all .2s ease-in-out;
+                padding: 0 .2rem;
+                &:hover{
+                    background-color: #f7f7f7;
+                    .date{
+                        color: @primary-color;
+                    }
+                }
+                .date{
+                    text-align: center;
+                    color: #666666;
+                    
+                    .day{
+                        font-family: 'YouSheBiaoTiHei';
+                        font-size: .6rem;
+                        line-height: 1;
+                    }
+                    .m-y{
+                        font-family: 'YouSheBiaoTiHei';
+                        font-size: .18rem;
+                    }
+                }
+                .desc{
+                    width: 5rem;
+                    .title{
+                        font-size: .2rem;
+                        color: #333333;
+                    }
+                    .content{
+                        max-height: .5rem;
+                        font-size: .14rem;
+                        color: #666666;
+                    }
+
+                }
+            }
+        }
+    }
+    @media screen and (max-width:@mobile_device){
+        &>{
+            padding: 0 0.25rem;
+            margin-top: .5rem !important;
+            .tabs{
+                float: none;
+                width: 100%;
+                font-size: 0;
+                .spreadhead{
+                    margin-bottom: 0.2rem;
+                }
+                .tabs-item{
+                    width: 50%;
+                    display: inline-flex;
+                    margin-bottom: 0rem;
+                }
+            }
+            .tabs-body{
+                width: 100%;
+                float: none;
+                .picture{
+                    display: none;
+                }
+                ul{
+                    li{
+                        width: 100%;
+                        height: auto;
+                        padding: .2rem 0 ;
+                    }
+                }
+                .date{
+                    .day{
+                        font-size: .4rem !important; 
+                    }
+                    .m-y{
+                        font-size: .14rem !important;
+                    }
+                }
+                .desc{
+                    width: calc(100% - 1.2rem) !important;
+                    .title{
+                        font-size: .3rem;
+                        margin-bottom: .05rem;
+                    }
+                    .content{
+                        font-size: .20rem;
+                    }
+                }
+            }
+        }
+    }
+}
+.swiper-slide{
+    width:300px;/*设为固定值*/
+    width:auto;/*根据内容调整宽度*/
+    background-color: @primary-color;
+    border: 1px solid #333333;
+  }
 .flex-column-end{
     display: flex;
     flex-direction: column;

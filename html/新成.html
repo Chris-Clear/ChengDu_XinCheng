@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../css/zyd.css">
 </head>
 <body>
-    <div class="main">
+    <div class="main" id="index">
         <!-- 顶部导航 -->    
         <header style="display: none;">
             <a href="#" class="brand"><img src="../img/slice/logo.png" alt="首页"></a>
@@ -59,10 +59,11 @@
             <!-- about img 840*590   -->
             <div class="left_img" style="background-image: url(../img/about.jpg);"></div>
             <div class="desc">
-                <div class="title">
-                    <!-- <img class="zh" src="../img/zh/关于新成.png" alt=""> -->
-                    <img class="en" src="../img/en/aboutxincheng.png" alt="">
-                    <p>关于新城</p>
+                <div class="spreadhead">
+                    <!-- <p class="zh">关于新城</p> -->
+                    <p class="en">ABOUT</p>
+                    <p class="en">XIN CHENG</p>
+                    <p class="en-t">关于新城</p>
                 </div>
                 <p class="content">
                     成都新成汽车检测设备有限公司成立于2009年6月15日，专业从事机动车检测设备的设计。制造。公司凭借从业经历丰富的
@@ -74,13 +75,76 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
 设备超过3200台套，2016 年产量超过4500台套，2017 年产量超过6000台套。目前公司已成为中国年产销量最大的机动车
 检测设备研发制造基地。先进.科学。高效.环保的生产制造工艺条件是实现更好产品质量。更高生产效率的可靠物质保证。
                 </p>
-                <div class="more_btn" style="background-image:url(../img/slice/index_more.png)">
-
+                <div class="more_btn" ></div>
+            </div>
+        </div>
+        <!-- 产品展示 -->
+        <div style="display: none;">
+            <div class="swiper-container " id="swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide blue-slide">
+                        slider1
+                    </div>
+                    <div class="swiper-slide red-slide" >
+                        slider2
+                    </div>
+                    <div class="swiper-slide">
+                        slider3
+                    </div>
+                    <div class="swiper-slide">
+                        slider4
+                    </div>
+                    <div class="swiper-slide">
+                        slider5
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- 生产工艺 -->
+        <!-- 新闻动态 -->
+        <div class="index_xwdt container clearfix">
+            <div class="tabs">
+                <div class="spreadhead">
+                    <!-- <p class="zh">新闻动态</p> -->
+                    <p class="en">NEWS</p>
+                    <p class="en">DYNAMIC</p>
+                    <p class="en-t">新闻动态</p>
+                </div>
+                <p class="tabs-item active">公司新闻</p>
+                <p class="tabs-item">行业新闻</p>
+            </div>
+            <div class="tabs-body"  v-show='!news'>
+                <div class="picture" style="background-image: url(../img/news-01.jpg);"></div>
+                <ul>
+                    <li>
+                        <div class="date">
+                            <p class="day">18</p>
+                            <p class="m-y">2020-02</p>
+                        </div>
+                        <div class="desc">
+                            <p class="title">公司技术中心被认定为成都市企业技术中心</p>
+                            <p class="content line2"> 新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
+                                的经营理念。多年来，深入实施创新驱动发展战略</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="date">
+                            <p class="day">18</p>
+                            <p class="m-y">2020-02</p>
+                        </div>
+                        <div class="desc">
+                            <p class="title">公司技术中心被认定为成都市企业技术中心</p>
+                            <p class="content line2"> 新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
+                                的经营理念。多年来，深入实施创新驱动发展战略新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
+                                的经营理念。多年来，深入实施创新驱动发展战略</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="tabs-body" v-show='!news'></div>
+        </div>
         <!-- 底部导航 -->
-        <footer style="height: 5rem;">
+        <footer style="height: 5rem;display: none;">
             <ul>
                 <li><a href="#">首页</a></li>
                 <li><a href="#">企业介绍</a></li>
@@ -96,4 +160,34 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
         </footer>
     </div>
 </body>
+<script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
+<script type="text/javascript" src="../lib/con_js.6.23.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/vant.min.js"></script>
+<script type="text/javascript" src="../lib/EHComponents.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#index',
+        data: {
+            content: 'wedawd',
+            news:false,//tru公司新闻 false 行业新闻
+        },
+        methods:{
+
+        },
+        created: function() {
+
+            // vant.Toast('提示');
+        }
+    })
+    // var mySwiper = new Swiper('.swiper-container',{
+    //     slidesPerView : 3,  
+    //     slidesPerGroup : 3,
+    //     spaceBetween : 20,
+    //     //slidesPerView : 'auto',    根据slide的宽度自动调整展示数量。此时需要设置slide的宽度，如下style所示
+    //     //slidesPerView : 3.7,
+    // })
+</script>
+</script>
 </html>

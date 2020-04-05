@@ -1,6 +1,38 @@
 .main {
   height: 100%;
 }
+@font-face {
+  font-family: 'YouSheBiaoTiHei';
+  src: url('../fonts/YouSheBiaoTiHei-2.ttf');
+}
+.spreadhead > p {
+  display: none;
+}
+.spreadhead .zh,
+.spreadhead .en {
+  font-family: 'YouSheBiaoTiHei';
+  font-size: 0.72rem;
+  color: #0172ff;
+  display: block;
+  line-height: 1;
+}
+.spreadhead .en ~ .en-t {
+  display: block;
+  font-size: 0.36rem;
+  color: #333333;
+  line-height: 1;
+  margin-top: 0.4rem;
+}
+@media screen and (max-width: 576px) {
+  .spreadhead .zh,
+  .spreadhead .en {
+    font-size: 0.3rem;
+  }
+  .spreadhead .en ~ .en-t {
+    font-size: 0.3rem;
+    margin-top: 0.12rem;
+  }
+}
 .index_banner {
   width: 100%;
   height: 9rem;
@@ -119,22 +151,6 @@
 .index_about .desc > * {
   margin-bottom: 0.4rem;
 }
-.index_about .desc .title > p {
-  display: none;
-}
-.index_about .desc .title .zh {
-  width: 2.63rem;
-}
-.index_about .desc .title .en {
-  width: 4.44rem;
-}
-.index_about .desc .title .en + p {
-  display: block;
-  font-size: 0.36rem;
-  color: #333333;
-  line-height: 1;
-  margin-top: 0.4rem;
-}
 .index_about .desc .content {
   font-size: 0.14rem;
   color: #666666;
@@ -145,13 +161,14 @@
   width: 0.94rem;
   height: 0.11rem;
   cursor: pointer;
+  background-image: url(../img/slice/index_more.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 @media screen and (max-width: 576px) {
   .index_about {
-    padding: 0 0.2rem;
+    padding: 0 0.25rem;
     margin-top: 1.9rem !important;
     position: relative;
   }
@@ -163,21 +180,20 @@
   .index_about .desc {
     width: 100%;
     height: auto;
-    display: block;
     float: none;
   }
-  .index_about .desc .title {
+  .index_about .desc .spreadhead {
     position: absolute;
     top: -1.3rem;
     left: 0.2rem;
   }
-  .index_about .desc .title .zh {
+  .index_about .desc .spreadhead .zh {
     width: 1.32rem;
   }
-  .index_about .desc .title .en {
+  .index_about .desc .spreadhead .en {
     width: 2.22rem;
   }
-  .index_about .desc .title .en + p {
+  .index_about .desc .spreadhead .en ~ .en-t {
     font-size: 0.3rem;
     margin-top: 0.13rem;
   }
@@ -193,9 +209,148 @@
     display: -webkit-box;
   }
   .index_about .desc .more_btn {
-    width: 0.94rem;
+    align-self: center;
+    width: 2.06rem;
+    height: 0.7rem;
     cursor: pointer;
+    background-color: #66cbff;
+    background-size: auto;
+    background-image: url(../img/slice/index_more_mobile.png);
   }
+}
+.index_xwdt {
+  margin-top: 1rem !important;
+}
+.index_xwdt .tabs {
+  float: left;
+  width: 4.57rem;
+}
+.index_xwdt .tabs .spreadhead {
+  margin-bottom: 1rem;
+}
+.index_xwdt .tabs .tabs-item {
+  width: 2.85rem;
+  height: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6e6e6;
+  font-size: 0.24rem;
+  color: #666666;
+  margin-bottom: 0.3rem;
+}
+.index_xwdt .tabs .tabs-item.active {
+  background-color: #66cbff;
+  color: #ffffff;
+}
+.index_xwdt .tabs-body {
+  width: 12rem;
+  float: right;
+  display: flex;
+  justify-content: space-between;
+}
+.index_xwdt .tabs-body .picture {
+  width: 4.7rem;
+  height: 6.7rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.index_xwdt .tabs-body ul li {
+  width: 6.8rem;
+  height: 1.68rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f7f7f7;
+  transition: all 0.2s ease-in-out;
+  padding: 0 0.2rem;
+}
+.index_xwdt .tabs-body ul li:hover {
+  background-color: #f7f7f7;
+}
+.index_xwdt .tabs-body ul li:hover .date {
+  color: #66cbff;
+}
+.index_xwdt .tabs-body ul li .date {
+  text-align: center;
+  color: #666666;
+}
+.index_xwdt .tabs-body ul li .date .day {
+  font-family: 'YouSheBiaoTiHei';
+  font-size: 0.6rem;
+  line-height: 1;
+}
+.index_xwdt .tabs-body ul li .date .m-y {
+  font-family: 'YouSheBiaoTiHei';
+  font-size: 0.18rem;
+}
+.index_xwdt .tabs-body ul li .desc {
+  width: 5rem;
+}
+.index_xwdt .tabs-body ul li .desc .title {
+  font-size: 0.2rem;
+  color: #333333;
+}
+.index_xwdt .tabs-body ul li .desc .content {
+  max-height: 0.5rem;
+  font-size: 0.14rem;
+  color: #666666;
+}
+@media screen and (max-width: 576px) {
+  .index_xwdt {
+    padding: 0 0.25rem;
+    margin-top: 0.5rem !important;
+  }
+  .index_xwdt .tabs {
+    float: none;
+    width: 100%;
+    font-size: 0;
+  }
+  .index_xwdt .tabs .spreadhead {
+    margin-bottom: 0.2rem;
+  }
+  .index_xwdt .tabs .tabs-item {
+    width: 50%;
+    display: inline-flex;
+    margin-bottom: 0rem;
+  }
+  .index_xwdt .tabs-body {
+    width: 100%;
+    float: none;
+  }
+  .index_xwdt .tabs-body .picture {
+    display: none;
+  }
+  .index_xwdt .tabs-body ul li {
+    width: 100%;
+    height: auto;
+    padding: 0.2rem 0;
+  }
+  .index_xwdt .tabs-body .date .day {
+    font-size: 0.4rem !important;
+  }
+  .index_xwdt .tabs-body .date .m-y {
+    font-size: 0.14rem !important;
+  }
+  .index_xwdt .tabs-body .desc {
+    width: calc(100% - 1.2rem) !important;
+  }
+  .index_xwdt .tabs-body .desc .title {
+    font-size: 0.3rem;
+    margin-bottom: 0.05rem;
+  }
+  .index_xwdt .tabs-body .desc .content {
+    font-size: 0.2rem;
+  }
+}
+.swiper-slide {
+  width: 300px;
+  /*设为固定值*/
+  width: auto;
+  /*根据内容调整宽度*/
+  background-color: #66cbff;
+  border: 1px solid #333333;
 }
 .flex-column-end {
   display: flex;
