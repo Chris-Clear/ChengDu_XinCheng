@@ -1321,10 +1321,10 @@ label input:checked+span.check_ok3:after{display: block;}
 
 /**方框型**/
 label{display: inline-block;}
-label input+span.check_fang{ line-height: 0;;display: inline-block;vertical-align: middle;border:1px solid #ccc; padding: 2px;margin: 0;height: auto;font-size: 0;}
-label input+span.check_fang:before{display: inline-block;border:6px solid transparent;content:"";}
+label input+span.check_fang{ line-height: 0;;display: inline-block;vertical-align: middle;border:1px solid #da202b; padding: 2px;margin: 0;height: auto;font-size: 0;}
+label input+span.check_fang:before{display: inline-block;border:.06rem solid transparent;content:"";}
 label input:checked+span.check_fang{border-color:initial; }
-label input:checked+span.check_fang:before{  border:6px solid transparent; border-color:inherit}
+label input:checked+span.check_fang:before{  border:.06rem solid transparent; border-color:inherit}
 
 /**方框型-打勾**/
 label{display: inline-block;}
