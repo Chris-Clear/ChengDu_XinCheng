@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新闻动态</title>
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--分享使用-->
+    <meta itemprop="name" content="" />
+    <meta itemprop="description" name="description" content="" />
+    <meta itemprop="image" content="img_url" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="../lib/page.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/swiper4.1.6.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/EHComponents.css">
+    <link rel="stylesheet" type="text/css" href="../css/vant.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/ly.css">
+    <link rel="stylesheet" type="text/css" href="../css/zyd.css">
+</head>
+
+<body>
+    <div class="main" id="product">
+        <!-- banner -->
+        <div class="product_banner" style="background-image: url(../img/banner2.jpg);">
+            <p class="en">新闻动态</p>
+            <p class="slogan">新成-更好的质量，更多的回馈</p>
+        </div>
+        <!-- 菜单 -->
+        <div class="container service_tabs">
+            <div class="service_tabs_item">
+                <ul>
+                    <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
+                </ul>
+            </div>
+            <div class="newsArea m-t-30r service_tabs_body">
+                <!-- 产品图片列表 -->
+                <div :class="tabActive==index?'item active':'item'" class="m-t-30r" v-for='(i,index) in tabData' v-clock>
+                    <div class="newsContent">
+                        <div class="contentTop hgt40rem between-center">
+                            <p class="coverImg wid50rem hgt40rem" style="background-image: url(../img/banner2.jpg);"></p>
+                            <div class="column-between flex_1 hgt40rem">
+                                <div class="hgt10rem m-l-30r  column-around">
+                                    <div class="titleArea relative">
+                                        <h4 class="font24r color-0172ff">新成公司新增5000平方米的厂房面积</h4>
+                                        <p class="color-999 font14r">公司新闻</p>
+                                    </div>
+                                </div>
+                                <div class="color-666 m-l-30r  font16r flex_1">
+                                    新成公司自2009年成立以来，准确定位目标市场，树立以客户利益为自身利益，与客户共同成长的经营理念。以诚信为根本，很抓产品质量、供货时间、后期服务的三个环节。逐步得到市场的认可，并在行业中迅速崛起。目前已在国内汽车检测设备行业中脱颖而出，成为行业的领跑者之一。
+
+面对产销的两旺局面，公司高层审时度势，果断地抓住机遇，扩大生产能力，布局未来。在工业园区租赁5000平方米面积的厂房，将占地面积较大的装配车间、包装车间、配套件库房迁至于此，使装配现场有序、规范，生产能力极大提升。原厂房腾出后，重新设计生产流程，改进涂装工艺，购置机加设备、钣金加工设备等，使得零部件的加工更快捷，产量和质量同步提高；同时增加了电子车间作业面积，突破了仪表生产的限制瓶颈。目前，公司台架的生产能力已达4800台套/年，电气仪表的生产能力已达1000台套/年。
+                                </div>
+                                <div class="between-center l-pad30 hgt06rem bg-f0f0f0">
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- 分页 -->
+                    <div class="page">
+                        <button class="prev"></button>
+                        <button class="next"></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
+<script type="text/javascript" src="../lib/con_js.6.23.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/vant.min.js"></script>
+<script type="text/javascript" src="../lib/EHComponents.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#product',
+        data: {
+            tabActive:0,
+            tabItem:'公司新闻',
+            tabData:['公司新闻','行业新闻'],
+        },
+        methods:{
+            tabToggle(data,num){
+                this.tabItem = data;
+                this.tabActive = num;
+                if($('.tab_box').css("display")=='block'){
+                    $('.tab_box+ul').slideUp();
+                }
+            }
+        },
+        created: function() {
+            
+        }
+    })
+    $('.tab_box').click(function(){
+        $('.tab_box+ul').slideToggle(300);
+    })
+</script>
+
+
+</html>
