@@ -1191,9 +1191,16 @@
 }
 //服务支持 详情
 .service-detail{
-    padding-top: 0.6rem;
+    padding: 0.6rem 0;
     .left{
         width: 5.3rem;
+        float: left;
+        &>p{
+            font-size: 0.24rem;
+            color: @emphasis-color;
+            margin-bottom: 0.15rem;
+            font-weight: bold;
+        }
         ul{
             border:1px solid #e6e6e6;
             padding: 0 0.2rem;
@@ -1201,6 +1208,104 @@
                 line-height: 0.54rem;
                 font-size: 0.14rem;
                 color: #666666;
+                border-bottom: 1px solid #e6e6e6;
+                &:hover{
+                    color: @primary-color;
+                }
+            }
+        }
+        .page{
+            text-align: center;
+            font-size: 0px;
+            margin-top:0.4rem ;
+            .prev,.next{
+                width: 0.6rem;
+                height: 0.4rem;
+                background:#e6e6e6 url(../img/slice/icon_next.png) center no-repeat; 
+                background-size: 0.19rem;
+                cursor: pointer;
+                &:hover{
+                    background-color: @primary-color;
+                }
+            }
+            .prev{
+                transform: rotate(180deg);
+            }
+            .goback{
+                display: none;
+                width: 2rem;
+                height: 0.7rem;
+                background-color: @primary-color;
+                color: #ffffff;
+                font-size: 0.24rem;
+            }
+        }
+    }
+    .right{
+        float: right;
+        width: 11.18rem;
+        .item{
+            display: none;
+            &.active{
+                display: block;
+            }
+            .subject-heading{
+                font-size: .3rem;
+                color: #333333;
+                text-align: center;
+                line-height: 2;
+                font-weight: bold;
+            }
+            .subheading{
+                font-size: 0.14rem;
+                color: #666666;
+                text-align: center;
+            }
+            .content{
+                margin-top: 0.3rem;
+                font-size: .18rem;
+                columns: #666666;
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            padding: 0 0.25rem;
+            display: flex;
+            flex-direction: column-reverse;
+            .left{
+                float: none;
+                width: 100%;
+                border:1px solid #e6e6e6;
+                padding: 0 0.2rem;
+                &>p{
+                    margin-top: 0.15rem;
+                    margin-bottom: 0rem;
+                    font-weight:normal;
+                }
+                ul{
+                    border: none;
+                    padding: 0;
+                    li{
+                        line-height: 0.54rem;
+                        font-size: 0.2rem;
+                        color: #333333 ;
+                    }
+                }
+                .prev,.next{
+                    display: none;
+                }
+                .goback{
+                    display: inline-block !important;
+                    margin-bottom: 0.4rem;
+                }
+            }
+            .right{
+                float: none;
+                width: 100%;
             }
         }
     }

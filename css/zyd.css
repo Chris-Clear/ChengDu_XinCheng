@@ -1126,10 +1126,17 @@
   }
 }
 .service-detail {
-  padding-top: 0.6rem;
+  padding: 0.6rem 0;
 }
 .service-detail .left {
   width: 5.3rem;
+  float: left;
+}
+.service-detail .left > p {
+  font-size: 0.24rem;
+  color: #0172ff;
+  margin-bottom: 0.15rem;
+  font-weight: bold;
 }
 .service-detail .left ul {
   border: 1px solid #e6e6e6;
@@ -1139,6 +1146,107 @@
   line-height: 0.54rem;
   font-size: 0.14rem;
   color: #666666;
+  border-bottom: 1px solid #e6e6e6;
+}
+.service-detail .left ul li:hover {
+  color: #66cbff;
+}
+.service-detail .left .page {
+  text-align: center;
+  font-size: 0px;
+  margin-top: 0.4rem;
+}
+.service-detail .left .page .prev,
+.service-detail .left .page .next {
+  width: 0.6rem;
+  height: 0.4rem;
+  background: #e6e6e6 url(../img/slice/icon_next.png) center no-repeat;
+  background-size: 0.19rem;
+  cursor: pointer;
+}
+.service-detail .left .page .prev:hover,
+.service-detail .left .page .next:hover {
+  background-color: #66cbff;
+}
+.service-detail .left .page .prev {
+  transform: rotate(180deg);
+}
+.service-detail .left .page .goback {
+  display: none;
+  width: 2rem;
+  height: 0.7rem;
+  background-color: #66cbff;
+  color: #ffffff;
+  font-size: 0.24rem;
+}
+.service-detail .right {
+  float: right;
+  width: 11.18rem;
+}
+.service-detail .right .item {
+  display: none;
+}
+.service-detail .right .item.active {
+  display: block;
+}
+.service-detail .right .item .subject-heading {
+  font-size: 0.3rem;
+  color: #333333;
+  text-align: center;
+  line-height: 2;
+  font-weight: bold;
+}
+.service-detail .right .item .subheading {
+  font-size: 0.14rem;
+  color: #666666;
+  text-align: center;
+}
+.service-detail .right .item .content {
+  margin-top: 0.3rem;
+  font-size: 0.18rem;
+  columns: #666666;
+}
+.service-detail .right .item .content img {
+  max-width: 100%;
+}
+@media screen and (max-width: 576px) {
+  .service-detail {
+    padding: 0 0.25rem;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .service-detail .left {
+    float: none;
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    padding: 0 0.2rem;
+  }
+  .service-detail .left > p {
+    margin-top: 0.15rem;
+    margin-bottom: 0rem;
+    font-weight: normal;
+  }
+  .service-detail .left ul {
+    border: none;
+    padding: 0;
+  }
+  .service-detail .left ul li {
+    line-height: 0.54rem;
+    font-size: 0.2rem;
+    color: #333333;
+  }
+  .service-detail .left .prev,
+  .service-detail .left .next {
+    display: none;
+  }
+  .service-detail .left .goback {
+    display: inline-block !important;
+    margin-bottom: 0.4rem;
+  }
+  .service-detail .right {
+    float: none;
+    width: 100%;
+  }
 }
 .flex-column-end {
   display: flex;
