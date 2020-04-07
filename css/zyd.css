@@ -1561,7 +1561,7 @@
 .service-detail .right .item .content {
   margin-top: 0.3rem;
   font-size: 0.18rem;
-  columns: #666666;
+  color: #666666;
 }
 .service-detail .right .item .content img {
   max-width: 100%;
@@ -1603,6 +1603,14 @@
   .service-detail .right {
     float: none;
     width: 100%;
+    margin-top: 0.3rem;
+  }
+  .service-detail .right .subheading {
+    font-size: 0.2rem !important;
+    margin-top: 0.05rem;
+  }
+  .service-detail .right .content {
+    font-size: 0.22rem !important;
   }
 }
 .technique_banner {

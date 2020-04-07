@@ -23,46 +23,50 @@
 </head>
 
 <body>
-    <div class="main" id="service">
-        <!-- banner -->
-        <div class="service_banner" style="background-image: url(../img/banner.jpg);">
-            <!-- <p class="zh">服务支持</p> -->
-            <p class="en">OOCUMENT OOWNLOAP</p>
-            <p class="slogan">新成-更好的质量，更多的回馈</p>
-        </div>
-        <!-- 菜单 -->
-        <div class="container service_tabs">
-            <div class="service_tabs_item">
-                <ul>
-                    <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
-                </ul>
+    <div class="main hgt_full flex_column" id="service">
+        <!-- 头部 -->
+        <common_head activeindex='0'></common_head>
+        <div class="flex_1 overflow_auto">
+            <!-- banner -->
+            <div class="service_banner" style="background-image: url(../img/banner.jpg);">
+                <!-- <p class="zh">服务支持</p> -->
+                <p class="en">OOCUMENT OOWNLOAP</p>
+                <p class="slogan">新成-更好的质量，更多的回馈</p>
             </div>
-            <div class="service_tabs_body">
-                 <!-- 搜索框 -->
-                <div class="search">
-                    <input type="text">
-                    <div class="submit">搜索</div>
-                </div>
-                <!-- 产品图片列表 -->
-                <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
+            <!-- 菜单 -->
+            <div class="container service_tabs">
+                <div class="service_tabs_item">
                     <ul>
-                        <li v-for='a in 11'>
-                            <div class="desc">
-                                <img class="default" src="../img/slice/question-black.png">
-                                <img class="hover" src="../img/slice/question-white.png">
-                                <p class="">
-                                    <span class="text line1">{{i}}</span>
-                                    <span class="date">2019-06-12</span>
-                                </p>
-                            </div>
-                            <button>立即查看</button>
-                        </li>
+                        <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
                     </ul>
-                    <!-- 分页 -->
-                    <div class="page">
-                        <button class="prev"></button>
-                        <button class="next"></button>
-
+                </div>
+                <div class="service_tabs_body">
+                     <!-- 搜索框 -->
+                    <div class="search">
+                        <input type="text">
+                        <div class="submit">搜索</div>
+                    </div>
+                    <!-- 产品图片列表 -->
+                    <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
+                        <ul>
+                            <li v-for='a in 11'>
+                                <div class="desc">
+                                    <img class="default" src="../img/slice/question-black.png">
+                                    <img class="hover" src="../img/slice/question-white.png">
+                                    <p class="">
+                                        <span class="text line1">{{i}}</span>
+                                        <span class="date">2019-06-12</span>
+                                    </p>
+                                </div>
+                                <button>立即查看</button>
+                            </li>
+                        </ul>
+                        <!-- 分页 -->
+                        <div class="page">
+                            <button class="prev"></button>
+                            <button class="next"></button>
+    
+                        </div>
                     </div>
                 </div>
             </div>

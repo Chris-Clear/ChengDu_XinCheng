@@ -14,219 +14,207 @@
     <link rel="stylesheet" type="text/css" href="../css/zyd.css">
 </head>
 <body>
-    <div class="main" id="index">
-        <!-- 顶部导航 -->    
-        <header style="display: none;">
-            <a href="#" class="brand"><img src="../img/slice/logo.png" alt="首页"></a>
-            <ul>
-                <il><a href="#">首页</a></il>
-                <il><a href="#">企业介绍</a></il>
-                <il><a href="#">产品展示</a></il>
-                <il><a href="#">生产工艺</a></il>
-                <il><a href="#">服务支持</a></il>
-                <il><a href="#">人才招聘</a></il>
-                <il><a href="#">新闻动态</a></il>
-                <il><a href="#">联系我们</a></il>
-                <il><a href="#">注册/登录</a></il>
-                <il><a href="#">中/ENG</a></il>
-            </ul>
-        </header>
-        <!-- banner -->
-        <div class="index_banner" style="background-image: url(../img/videos1.jpg);">
-            <div class="container con">
-                <p class="title">
-                    <span class="brand">新城—</span>
-                    <span class="slogan">因为我们专业，所以值得信任</span>
-                </p>
-                <div class="btn_list">
-                    <div class="btn font0">
-                        <button><img src="../img/slice/daili.png" /> 城市代理</button>
-                        <button><img src="../img/slice/kucun.png" /> 查看库存</button>
-                        <button><img src="../img/slice/zibo.png" /> 直播展示</button>
+    <div class="main hgt_full flex_column" id="index">
+        <!-- 头部 -->
+        <common_head activeindex='0'></common_head>
+        <div class="flex_1 overflow_auto">
+            <!-- banner -->
+            <div class="index_banner" style="background-image: url(../img/videos1.jpg);">
+                <div class="container con">
+                    <p class="title">
+                        <span class="brand">新城—</span>
+                        <span class="slogan">因为我们专业，所以值得信任</span>
+                    </p>
+                    <div class="btn_list">
+                        <div class="btn font0">
+                            <button><img src="../img/slice/daili.png" /> 城市代理</button>
+                            <button><img src="../img/slice/kucun.png" /> 查看库存</button>
+                            <button><img src="../img/slice/zibo.png" /> 直播展示</button>
+                        </div>
+                        <div class="tel">
+                            <img src="../img/slice/phone.png">
+                            <p>
+                                <span>028-82433300</span>
+                                <span>028-82433311</span>
+                            </p>
+                        </div>
                     </div>
-                    <div class="tel">
-                        <img src="../img/slice/phone.png">
-                        <p>
-                            <span>028-82433300</span>
-                            <span>028-82433311</span>
+                </div>
+            </div>
+            <!-- 关于新城 -->
+            <div class="index_about container clearfix">
+                <!-- about img 840*590   -->
+                <div class="left_img" style="background-image: url(../img/about.jpg);"></div>
+                <div class="desc">
+                    <div class="spreadhead">
+                        <!-- <p class="zh">关于新城</p> -->
+                        <p class="en">ABOUT</p>
+                        <p class="en">XIN CHENG</p>
+                        <p class="en-t">关于新城</p>
+                    </div>
+                    <p class="content">
+                        成都新成汽车检测设备有限公司成立于2009年6月15日，专业从事机动车检测设备的设计。制造。公司凭借从业经历丰富的
+    管理团队和技术人才,以全新的经营模式致力于和机动车检测设备行业的系统集成商、中间商、代理商达成战略合作,为其提供
+    OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务于用户,用更高效、务实、诚信的精神立足于行业。
+    公司座落在成都城南外28公里的省级工业区新津工业园A区兴园11路518号,车间面积近13000 nf,员工130余人,其中一
+    线技术工人有100余名，多数具有十年以上行业内知名企业的工作经验。公司为高新技术企业,有先进设备70余台,已获得专
+    利及软件薯作权近20项,净资产6000万元。2012年生产设备超过1000台套。2014年生产设备超过2200台套,2015年生
+    设备超过3200台套，2016 年产量超过4500台套，2017 年产量超过6000台套。目前公司已成为中国年产销量最大的机动车
+    检测设备研发制造基地。先进.科学。高效.环保的生产制造工艺条件是实现更好产品质量。更高生产效率的可靠物质保证。
+                    </p>
+                    <div class="more_btn" ></div>
+                </div>
+            </div>
+            <!-- 产品展示 pc-->
+            <div class="index_product container">
+                <div class="top_box">
+                    <div class="spreadhead">
+                        <!-- <p class="zh">产品展示</p> -->
+                        <p class="en">PROOUCT<br/>OISPLAY</p>
+                        <p class="en-t">产品展示</p>
+                    </div>
+                    <!-- 菜单 -->
+                    <div class="menu">
+                        <ul>
+                            <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
+                        </ul>
+                        <!-- 查看更多 -->
+                        <button class="more">查看更多</button>
+                        <button class="add"></button>
+                    </div>
+                </div>
+                <div class="index_product_list">
+                    <!-- 产品图片列表 -->
+                    <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
+                        <ul>
+                            <li v-for='a in 11'>
+                                <img src='../img/product1.jpg'>
+                                <p>{{i}}</p>
+                            </li>
+                        </ul>
+
+                        <!-- 分页 -->
+                        <div class="page">
+                            <button class="prev"></button>
+                            <button class="next"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 产品展示 移动端-->
+            <div class="index_product_mobile">
+                <div id="gallery" class="swiper-container gallery" style="margin-bottom: 10px;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide swiper-no-swiping" v-for='(i,index) in imgList' >
+                            <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                                <p class="title">{{tabData[index]}}</p>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev swiper-button-white"></div>
+                        <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+                <div id="thumbs" class="swiper-container thumbs">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for='i in imgList' >
+                            <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                            </div>
+                        </div>
+                        <!-- 查看更多 -->
+                        <div class="swiper-slide swiper-no-swiping">
+                            <div class="img">
+                                <img src="../img/slice/icon_menu.png">
+                                <p class="more">查看更多</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- 生成工艺 -->
+            <div class="index_scgy container">
+                <!-- pc端显示标题，菜单-->
+                <div class="top_box">
+                    <div class="spreadhead">
+                        <!-- <p class="zh">生成工艺</p> -->
+                        <p class="en">PROOUCTION<br/>PROCESS</p>
+                        <p class="en-t">生成工艺</p>
+                    </div>
+                    <!-- 菜单 -->
+                    <div class="menu">
+                        <ul>
+                            <li :class="scgyActive==index?'active':''" @click='scgyToggle(i,index)' v-for='(i,index) in scgyData' v-clock>{{i}}</li>
+                        </ul>
+                        <!-- 查看更多 -->
+                        <button class="more">查看更多</button>
+                        <button class="add"></button>
+                    </div>
+                </div>
+                <!-- 移动端显示标题，菜单 -->
+                <div class="top_mobile">
+                    <div class="spreadhead">
+                        <!-- <p class="zh">生成工艺</p> -->
+                        <p class="en">PROOUCTION<br/>PROCESS</p>
+                        <p class="en-t">生成工艺</p>
+                    </div>
+                    <div class="menu">
+                        <p class="title">{{scgyItem}}</p>
+                        <p class="page">
+                            <button class="prev" :disabled='scgyActive==0' @click='pageHandle("-")'></button>
+                            <button class="next" :disabled='scgyActive==scgyData.length-1' @click='pageHandle("+")'></button>
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- 关于新城 -->
-        <div class="index_about container clearfix">
-            <!-- about img 840*590   -->
-            <div class="left_img" style="background-image: url(../img/about.jpg);"></div>
-            <div class="desc">
-                <div class="spreadhead">
-                    <!-- <p class="zh">关于新城</p> -->
-                    <p class="en">ABOUT</p>
-                    <p class="en">XIN CHENG</p>
-                    <p class="en-t">关于新城</p>
+                <div class="index_index_scgy_list">
+                    <!-- 产品图片列表 -->
+                    <div :class="scgyActive==index?'item active':'item'" v-for='(i,index) in scgyData' v-clock>
+                        <img src='../img/background.jpg'>
+                    </div>
                 </div>
-                <p class="content">
-                    成都新成汽车检测设备有限公司成立于2009年6月15日，专业从事机动车检测设备的设计。制造。公司凭借从业经历丰富的
-管理团队和技术人才,以全新的经营模式致力于和机动车检测设备行业的系统集成商、中间商、代理商达成战略合作,为其提供
-OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务于用户,用更高效、务实、诚信的精神立足于行业。
-公司座落在成都城南外28公里的省级工业区新津工业园A区兴园11路518号,车间面积近13000 nf,员工130余人,其中一
-线技术工人有100余名，多数具有十年以上行业内知名企业的工作经验。公司为高新技术企业,有先进设备70余台,已获得专
-利及软件薯作权近20项,净资产6000万元。2012年生产设备超过1000台套。2014年生产设备超过2200台套,2015年生
-设备超过3200台套，2016 年产量超过4500台套，2017 年产量超过6000台套。目前公司已成为中国年产销量最大的机动车
-检测设备研发制造基地。先进.科学。高效.环保的生产制造工艺条件是实现更好产品质量。更高生产效率的可靠物质保证。
-                </p>
-                <div class="more_btn" ></div>
             </div>
-        </div>
-        <!-- 产品展示 pc-->
-        <div class="index_product container">
-            <div class="top_box">
-                <div class="spreadhead">
-                    <!-- <p class="zh">产品展示</p> -->
-                    <p class="en">PROOUCT<br/>OISPLAY</p>
-                    <p class="en-t">产品展示</p>
+        
+            <!-- 生产工艺 -->
+            <!-- 新闻动态 -->
+            <div class="index_xwdt container clearfix">
+                <div class="tabs">
+                    <div class="spreadhead">
+                        <!-- <p class="zh">新闻动态</p> -->
+                        <p class="en">NEWS</p>
+                        <p class="en">DYNAMIC</p>
+                        <p class="en-t">新闻动态</p>
+                    </div>
+                    <p :class="news?'tabs-item ':'tabs-item active'" @click='news=false'>公司新闻</p>
+                    <p :class="news?'tabs-item active':'tabs-item '" @click='news=true'>行业新闻</p>
                 </div>
-                <!-- 菜单 -->
-                <div class="menu">
+                <div class="tabs-body"  v-show='!news'>
+                    <div class="picture" style="background-image: url(../img/news-01.jpg);"></div>
                     <ul>
-                        <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
-                    </ul>
-                    <!-- 查看更多 -->
-                    <button class="more">查看更多</button>
-                    <button class="add"></button>
-                </div>
-            </div>
-            <div class="index_product_list">
-                <!-- 产品图片列表 -->
-                <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
-                    <ul>
-                        <li v-for='a in 11'>
-                            <img src='../img/product1.jpg'>
-                            <p>{{i}}</p>
+                        <li>
+                            <div class="date">
+                                <p class="day">18</p>
+                                <p class="m-y">2020-02</p>
+                            </div>
+                            <div class="desc">
+                                <p class="title">公司技术中心被认定为成都市企业技术中心</p>
+                                <p class="content line2"> 新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
+                                    的经营理念。多年来，深入实施创新驱动发展战略</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="date">
+                                <p class="day">18</p>
+                                <p class="m-y">2020-02</p>
+                            </div>
+                            <div class="desc">
+                                <p class="title">公司技术中心被认定为成都市企业技术中心</p>
+                                <p class="content line2"> 新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
+                                    的经营理念。多年来，深入实施创新驱动发展战略新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
+                                    的经营理念。多年来，深入实施创新驱动发展战略</p>
+                            </div>
                         </li>
                     </ul>
-
-                    <!-- 分页 -->
-                    <div class="page">
-                        <button class="prev"></button>
-                        <button class="next"></button>
-                    </div>
                 </div>
+                <div class="tabs-body" v-show='!news'></div>
             </div>
-        </div>
-         <!-- 产品展示 移动端-->
-        <div class="index_product_mobile">
-            <div id="gallery" class="swiper-container gallery" style="margin-bottom: 10px;">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide swiper-no-swiping" v-for='(i,index) in imgList' >
-                        <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
-                            <p class="title">{{tabData[index]}}</p>
-                        </div>
-                    </div>
-                    <div class="swiper-button-prev swiper-button-white"></div>
-                    <div class="swiper-button-next swiper-button-white"></div>
-              </div>
-              <div id="thumbs" class="swiper-container thumbs">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for='i in imgList' >
-                        <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
-                        </div>
-                    </div>
-                     <!-- 查看更多 -->
-                     <div class="swiper-slide swiper-no-swiping">
-                        <div class="img">
-                            <img src="../img/slice/icon_menu.png">
-                            <p class="more">查看更多</p>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </div>
-         <!-- 生成工艺 -->
-         <div class="index_scgy container">
-            <!-- pc端显示标题，菜单-->
-            <div class="top_box">
-                <div class="spreadhead">
-                    <!-- <p class="zh">生成工艺</p> -->
-                    <p class="en">PROOUCTION<br/>PROCESS</p>
-                    <p class="en-t">生成工艺</p>
-                </div>
-                <!-- 菜单 -->
-                <div class="menu">
-                    <ul>
-                        <li :class="scgyActive==index?'active':''" @click='scgyToggle(i,index)' v-for='(i,index) in scgyData' v-clock>{{i}}</li>
-                    </ul>
-                    <!-- 查看更多 -->
-                    <button class="more">查看更多</button>
-                    <button class="add"></button>
-                </div>
-            </div>
-            <!-- 移动端显示标题，菜单 -->
-            <div class="top_mobile">
-                <div class="spreadhead">
-                    <!-- <p class="zh">生成工艺</p> -->
-                    <p class="en">PROOUCTION<br/>PROCESS</p>
-                    <p class="en-t">生成工艺</p>
-                </div>
-                <div class="menu">
-                    <p class="title">{{scgyItem}}</p>
-                    <p class="page">
-                        <button class="prev" :disabled='scgyActive==0' @click='pageHandle("-")'></button>
-                        <button class="next" :disabled='scgyActive==scgyData.length-1' @click='pageHandle("+")'></button>
-                    </p>
-                </div>
-            </div>
-            <div class="index_index_scgy_list">
-                <!-- 产品图片列表 -->
-                <div :class="scgyActive==index?'item active':'item'" v-for='(i,index) in scgyData' v-clock>
-                    <img src='../img/background.jpg'>
-                </div>
-            </div>
-        </div>
-       
-        <!-- 生产工艺 -->
-        <!-- 新闻动态 -->
-        <div class="index_xwdt container clearfix">
-            <div class="tabs">
-                <div class="spreadhead">
-                    <!-- <p class="zh">新闻动态</p> -->
-                    <p class="en">NEWS</p>
-                    <p class="en">DYNAMIC</p>
-                    <p class="en-t">新闻动态</p>
-                </div>
-                <p :class="news?'tabs-item ':'tabs-item active'" @click='news=false'>公司新闻</p>
-                <p :class="news?'tabs-item active':'tabs-item '" @click='news=true'>行业新闻</p>
-            </div>
-            <div class="tabs-body"  v-show='!news'>
-                <div class="picture" style="background-image: url(../img/news-01.jpg);"></div>
-                <ul>
-                    <li>
-                        <div class="date">
-                            <p class="day">18</p>
-                            <p class="m-y">2020-02</p>
-                        </div>
-                        <div class="desc">
-                            <p class="title">公司技术中心被认定为成都市企业技术中心</p>
-                            <p class="content line2"> 新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
-                                的经营理念。多年来，深入实施创新驱动发展战略</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date">
-                            <p class="day">18</p>
-                            <p class="m-y">2020-02</p>
-                        </div>
-                        <div class="desc">
-                            <p class="title">公司技术中心被认定为成都市企业技术中心</p>
-                            <p class="content line2"> 新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
-                                的经营理念。多年来，深入实施创新驱动发展战略新成公司从创立开始，-直秉承为社会提供优质产品，服务客户，与客户共成长
-                                的经营理念。多年来，深入实施创新驱动发展战略</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="tabs-body" v-show='!news'></div>
         </div>
         <!-- 底部导航 -->
         <footer style="height: 5rem;display: none;">
