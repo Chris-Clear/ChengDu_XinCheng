@@ -507,9 +507,14 @@
     }
     @media screen and (max-width:@mobile_device){
         &{
-            .menu{
-                display: none;
+            .top_box{
+                margin-top: 0.55rem;
+                padding: 0 0.25rem;
+                .menu{
+                    display: none;
+                }
             }
+           
             .index_product_list{
                 display: none;
             }
@@ -519,25 +524,66 @@
 }
 //产品展示 移动端
 .index_product_mobile{
-    .gallery{
-        .img{
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 4rem;
-            width: 100%;
+    display: none;
+}
+@media screen and (max-width:@mobile_device){
+    .index_product_mobile{
+        padding: 0 0.25rem;
+        margin-top: 0.25rem;
+        display: block;
+        .gallery{
+            .img{
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 4rem;
+                width: 100%;
+                border: 1px solid #e6e6e6;
+                position: relative;
+                .title{
+                    position: absolute;
+                    left: -1px;
+                    bottom: -1px;
+                    width: calc(100% + 2px);
+                    line-height: 0.7rem;
+                    font-size: 0.3rem;
+                    color: #fff;
+                    text-align: center;
+                    background-color: @emphasis-color;
+                }
+            }
+            
         }
-    }
-    .thumbs{
-        height: 1rem;
-        .img{
-            background-position: center;
-            background-repeat: no-repeat;
+        .thumbs{
             height: 1rem;
-            width: auto;
-            background-size: cover;
+            margin-top: 0.2rem;
+            .swiper-slide{
+                border: 1px solid #e6e6e6;
+                &.swiper-slide-active{
+                    border: 1px solid @emphasis-color;
+                }
+            }
+            .img{
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 0.9rem;
+                width: auto;
+                background-size: cover;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 0.5rem;
+                }
+                .more{
+                    font-size: 0.2rem;
+                    color: @emphasis-color;
+                }
+            }
         }
     }
 }
+
 .index_scgy{
     margin: 1rem auto !important;
     .top_box{

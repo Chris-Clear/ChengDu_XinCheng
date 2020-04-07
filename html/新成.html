@@ -118,8 +118,9 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
         <div class="index_product_mobile">
             <div id="gallery" class="swiper-container gallery" style="margin-bottom: 10px;">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for='i in imgList' >
+                    <div class="swiper-slide swiper-no-swiping" v-for='(i,index) in imgList' >
                         <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                            <p class="title">{{tabData[index]}}</p>
                         </div>
                     </div>
                     <div class="swiper-button-prev swiper-button-white"></div>
@@ -129,6 +130,13 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for='i in imgList' >
                         <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                        </div>
+                    </div>
+                     <!-- 查看更多 -->
+                     <div class="swiper-slide swiper-no-swiping">
+                        <div class="img">
+                            <img src="../img/slice/icon_menu.png">
+                            <p class="more">查看更多</p>
                         </div>
                     </div>
                 </div>
@@ -270,7 +278,6 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
             },
             //page
             pageHandle(sign){
-               
                 if(sign=='+'){
                     this.scgyActive = ++this.scgyActive
                 }else{
@@ -305,6 +312,7 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
         spaceBetween: 10,
         slidesPerView: 4,
         watchSlidesVisibility: true, //防止不可点击
+
     })
     var gallerySwiper = new Swiper('#gallery', {
         effect : 'coverflow',
@@ -312,9 +320,18 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
         slidesPerView: 1,
         centeredSlides: true,
         loop: true,
+        noSwiping : true,
         thumbs: {
             swiper: thumbsSwiper,
-        }
+        },
+        on:{
+            click: function(event){
+                console.log(gallerySwiper.activeIndex );
+                // $('#thumbs .swiper-slide').removeClass('swiper-slide-active').find(eq()).addClass('swiper-slide-active'));
+               
+                $('#thumbs .swiper-slide:nth-child('+gallerySwiper.activeIndex+')').addClass("swiper-slide-active").siblings().removeClass("swiper-slide-active");
+            },
+        },
     })
 </script>
 </script>
