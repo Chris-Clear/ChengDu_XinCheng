@@ -78,28 +78,105 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
                 <div class="more_btn" ></div>
             </div>
         </div>
-        <!-- 产品展示 -->
-        <div style="display: none;">
-            <div class="swiper-container " id="swiper-container2">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide blue-slide">
-                        slider1
-                    </div>
-                    <div class="swiper-slide red-slide" >
-                        slider2
-                    </div>
-                    <div class="swiper-slide">
-                        slider3
-                    </div>
-                    <div class="swiper-slide">
-                        slider4
-                    </div>
-                    <div class="swiper-slide">
-                        slider5
+        <!-- 产品展示 pc-->
+        <div class="index_product container">
+            <div class="top_box">
+                <div class="spreadhead">
+                    <!-- <p class="zh">产品展示</p> -->
+                    <p class="en">PROOUCT<br/>OISPLAY</p>
+                    <p class="en-t">产品展示</p>
+                </div>
+                <!-- 菜单 -->
+                <div class="menu">
+                    <ul>
+                        <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
+                    </ul>
+                    <!-- 查看更多 -->
+                    <button class="more">查看更多</button>
+                    <button class="add"></button>
+                </div>
+            </div>
+            <div class="index_product_list">
+                <!-- 产品图片列表 -->
+                <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
+                    <ul>
+                        <li v-for='a in 11'>
+                            <img src='../img/product1.jpg'>
+                            <p>{{i}}</p>
+                        </li>
+                    </ul>
+
+                    <!-- 分页 -->
+                    <div class="page">
+                        <button class="prev"></button>
+                        <button class="next"></button>
                     </div>
                 </div>
             </div>
         </div>
+         <!-- 产品展示 移动端-->
+        <div class="index_product_mobile">
+            <div id="gallery" class="swiper-container gallery" style="margin-bottom: 10px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for='i in imgList' >
+                        <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+              </div>
+              <div id="thumbs" class="swiper-container thumbs">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for='i in imgList' >
+                        <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+         <!-- 生成工艺 -->
+         <div class="index_scgy container">
+            <!-- pc端显示标题，菜单-->
+            <div class="top_box">
+                <div class="spreadhead">
+                    <!-- <p class="zh">生成工艺</p> -->
+                    <p class="en">PROOUCTION<br/>PROCESS</p>
+                    <p class="en-t">生成工艺</p>
+                </div>
+                <!-- 菜单 -->
+                <div class="menu">
+                    <ul>
+                        <li :class="scgyActive==index?'active':''" @click='scgyToggle(i,index)' v-for='(i,index) in scgyData' v-clock>{{i}}</li>
+                    </ul>
+                    <!-- 查看更多 -->
+                    <button class="more">查看更多</button>
+                    <button class="add"></button>
+                </div>
+            </div>
+            <!-- 移动端显示标题，菜单 -->
+            <div class="top_mobile">
+                <div class="spreadhead">
+                    <!-- <p class="zh">生成工艺</p> -->
+                    <p class="en">PROOUCTION<br/>PROCESS</p>
+                    <p class="en-t">生成工艺</p>
+                </div>
+                <div class="menu">
+                    <p class="title">{{scgyItem}}</p>
+                    <p class="page">
+                        <button class="prev" :disabled='scgyActive==0' @click='pageHandle("-")'></button>
+                        <button class="next" :disabled='scgyActive==scgyData.length-1' @click='pageHandle("+")'></button>
+                    </p>
+                </div>
+            </div>
+            <div class="index_index_scgy_list">
+                <!-- 产品图片列表 -->
+                <div :class="scgyActive==index?'item active':'item'" v-for='(i,index) in scgyData' v-clock>
+                    <img src='../img/background.jpg'>
+                </div>
+            </div>
+        </div>
+       
         <!-- 生产工艺 -->
         <!-- 新闻动态 -->
         <div class="index_xwdt container clearfix">
@@ -161,7 +238,7 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
     </div>
 </body>
 <script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
-<script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
+<script type="text/javascript" src="../lib/swiper.min.js"></script>
 <script type="text/javascript" src="../lib/con_js.6.23.js"></script>
 <script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../lib/vant.min.js"></script>
@@ -172,22 +249,73 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
         data: {
             content: 'wedawd',
             news:false,//tru公司新闻 false 行业新闻
+            tabActive:0,
+            tabItem:'汽车安全性能检测设备',
+            tabData:['汽车安全性能检测设备','汽车综合性能检测设备','汽车排放测试设备','汽车制造厂用检测设备','仪器仪表'],
+            scgyActive:0,
+            scgyItem:'喷塑',
+            scgyData:[' 喷塑','涂装','板焊','下料','机加工'],
+            imgList:['../img/product1.jpg','../img/product2.jpg','../img/product3.jpg','../img/product4.jpg']
         },
         methods:{
-
+            //产品展示
+            tabToggle(data,num){
+                this.tabItem = data;
+                this.tabActive = num;
+            },
+            //生成工艺
+            scgyToggle(data,num){
+                this.scgyItem = data;
+                this.scgyActive = num;
+            },
+            //page
+            pageHandle(sign){
+               
+                if(sign=='+'){
+                    this.scgyActive = ++this.scgyActive
+                }else{
+                    this.scgyActive = --this.scgyActive;
+                }
+                this.scgyItem=this.scgyData[this.scgyActive];
+            }
         },
         created: function() {
 
             // vant.Toast('提示');
         }
     })
-    // var mySwiper = new Swiper('.swiper-container',{
-    //     slidesPerView : 3,  
-    //     slidesPerGroup : 3,
-    //     spaceBetween : 20,
-    //     //slidesPerView : 'auto',    根据slide的宽度自动调整展示数量。此时需要设置slide的宽度，如下style所示
-    //     //slidesPerView : 3.7,
-    // })
+    // var thumbsSwiper = new Swiper('#thumbs', { 
+    //     spaceBetween: 10, 
+    //     slidesPerView: 4, 
+    //     watchSlidesVisibility: true, //防止不可点击 
+    // }) 
+    // var gallerySwiper = new Swiper('#gallery', { 
+    //     effect : 'coverflow', 
+    //     spaceBetween: 10, //缩略图间距 
+    //     slidesPerView: 3, 
+    //     centeredSlides: true, 
+    //     initialSlide :2, 
+    //     loop: true, 
+    //     autoplay: true, 
+    //     thumbs: { 
+    //         swiper: thumbsSwiper, 
+    //     } 
+    // }) 
+    var thumbsSwiper = new Swiper('#thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        watchSlidesVisibility: true, //防止不可点击
+    })
+    var gallerySwiper = new Swiper('#gallery', {
+        effect : 'coverflow',
+        spaceBetween: 10, //缩略图间距
+        slidesPerView: 1,
+        centeredSlides: true,
+        loop: true,
+        thumbs: {
+            swiper: thumbsSwiper,
+        }
+    })
 </script>
 </script>
 </html>

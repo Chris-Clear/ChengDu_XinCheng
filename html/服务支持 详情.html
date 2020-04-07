@@ -23,26 +23,63 @@
 </head>
 
 <body>
-    <div class="main  container" id="service-detail">
-       
-        <!-- 菜单 -->
+    <div class="main" id="service-detail">
+        <div class="service-detail container clearfix">
+            <!-- 菜单 -->
         <div class="left">
-                <ul>
-                    <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
-                </ul>
-                <!-- 分页 -->
-                <div class="page">
-                    <button class="prev"></button>
-                    <button class="next"></button>
-                </div>
-            <div class="service_tabs_body">
-                <div class="item">
-                    
-                </div>
+            <p>常见问题</p>
+            <ul>
+                <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
+            </ul>
+            <!-- 分页 -->
+            <div class="page">
+                <button class="prev"></button>
+                <button class="next"></button>
+                <button class="goback">返回列表</button>
+            </div>
+    </div>
+    <div class="right">
+        <!-- 产品图片列表 -->
+        <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
+            <!-- 主标题 -->
+            <p class="subject-heading ">{{i}}</p>
+            <!-- 副标题 -->
+            <p class="subheading">日期: 2017年6月23日21:51</p>
+            <!-- 内容 -->
+            <div class="content">
+               <p class="m-b-25"> 渠道设备该如何添加到萤石云上去呢?</p>
+               <p class="m-b-25">-、启用萤石云，记录设备验证码。
+                录像机的萤石云设置:在DVR/NVR添加萤石云前需“启用萤石云”</p>
+                <img src="../img/img1.jpg">
+                <p class="">摄像机的萤石云设置:在局域网内输入摄像机的IP地址进行访问，在网络配置中“启用ezviz"。</p>
+                <img src="../img/img2.jpg">
+                <p class="m-b-25">*注意:要填写正确的IP,子网掩码，网关，还有DNS服务器。</p>
+                <p class="m-b-25"> 二、注册萤石云账号。<br />
+                    登录www.ys7.com注册萤石云账户。
+                    </p>
+                <p class="m-b-25">
+                    三、在官网添加设备。<br />
+                    a)点击“进入萤石云”<br />
+                    b)第一次使用请下载并运行插件。<br />
+                    c)点击添加设备。
+
+                </p>
+                <p class="m-b-25"> 或者，进入配置管理，点击快速添加设备。                    </p>
+                <p class="m-b-25"> e)选择需要添加的设备类型。(对于渠道产 品，如果是摄像头，则选择网络摄像机里的“其他”
+                    如果是录像机，则选择录像机里的“其他”。)<br />
+                    f)选择局域网中扫描到的设备，选择“+号”,输入设备验证码，完成设备添加。
+                    </p>
+                <p class="m-b-25"> 或者选择序列号添加方式，输入序列号，点击回车,输入验证码,完成设备添加。</p>
+                <p class="m-b-25"> 四、用手机添加设备<br />
+                    Step1:手机客户端安装</p>
+                <p class="m-b-25"> 下载方法:可登陆www.ys7.com,在下载与支持中，根据手机系统下载对应的移动客户端(目前支持ios和Android)。</p>
+                <p class="m-b-25"> Step2:添加设备</p>
+                <p class="m-b-25"> 注册好账号密码之后，登录手机客户端。进入手机客户端的界面，点击右上角的“+”号，添加设备。进入序列号扫描界面，请将设备机身上的二维
+                    码放置在扫描框内，手机将自动识别。扫描到设备后，即可进行添加。</p>
+                <p class="m-b-25"> 也可以通过输入序列号，手动输入机身上验证码的方式进行设备的添加。</p>
             </div>
         </div>
-        <div class="right">
-
+    </div>
         </div>
     </div>
 </body>
@@ -59,7 +96,9 @@
             content: 'wedawd',
             tabActive:0,
             tabItem:'汽车安全性能检测设备',
-            tabData:['常见问题解答','设备规格书','标准法规','工具软件','其他'],
+            tabData:['远程访问:第三方城名外网访问指导','远程访问:远程观看萤石云视频的方法','远程访问:渠道产品添加至萤石云方法'
+            ,'DVR/NVR产品萤石云操作指导手册','流媒体服务器软件使用说明','域名方式外网无法访问排查步骤','DVR/DVS运程访问设置手册','IE访问DVR/DVS常见问题解答','设备硬盘支持型号列表'
+            ,'4200存储服务器配置方法'],
         },
         methods:{
             tabToggle(data,num){

@@ -88,18 +88,14 @@
             tabToggle(data,num){
                 this.tabItem = data;
                 this.tabActive = num;
-                if($('.tab_box').css("display")=='block'){
-                    $('.tab_box+ul').slideUp();
-                }
+               
             }
         },
         created: function() {
-            vant.Toast('提示');
+            // vant.Toast('提示');
         }
     })
-    $('.tab_box').click(function(){
-        $('.tab_box+ul').slideToggle(300);
-    })
+  
 </script>
 
 
