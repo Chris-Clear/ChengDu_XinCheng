@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>服务支持</title>
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--分享使用-->
+    <meta itemprop="name" content="" />
+    <meta itemprop="description" name="description" content="" />
+    <meta itemprop="image" content="img_url" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="../lib/page.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/swiper4.1.6.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/EHComponents.css">
+    <link rel="stylesheet" type="text/css" href="../css/vant.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/ly.css">
+    <link rel="stylesheet" type="text/css" href="../css/zyd.css">
+</head>
+
+<body>
+    <div class="main" id="technique">
+        <!-- banner -->
+        <div class="technique_banner" style="background-image: url(../img/banner3.jpg);">
+            <!-- <p class="zh">生产工艺</p> -->
+            <p class="en">RROOUCTION PROCESS</p>
+            <p class="slogan">新成-更好的质量，更多的回馈</p>
+        </div>
+        <!-- 播放视频 -->
+       <div class="technique_play_video container">
+            <video controls>
+                <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"  type="video/mp4">
+                您的浏览器不支持 HTML5 video 标签。
+            </video>
+            <div class="info">
+                <div class="text">
+                    <p class="zh">{{tabItem.name}}</p>
+                    <p class="en">ASSEMBLY </p>
+                </div>
+                <button><img src="../img/slice/huifan.png">直播回放</button>
+            </div>
+       </div>
+       <!--视频列表 -->
+       <div class="technique_video_list container">
+           <ul>
+               <li :class="tabActive==index?'item active':'item'" v-for='(i,index) in videoData' @click='tabToggle(i,index)'>
+                   <div class="img">
+                    <img :src="i.img">
+                   </div>
+                   <p class="state">实时直播...</p>
+                   <p class="name line1">{{i.name}}</p>
+               </li>
+            </ul>
+       </div>
+    </div>
+</body>
+<script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
+<script type="text/javascript" src="../lib/con_js.6.23.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/vant.min.js"></script>
+<script type="text/javascript" src="../lib/EHComponents.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#technique',
+        data: {
+            content: 'wedawd',
+            tabActive:0,
+            tabItem: {name:'生产过程-装配',img:'../img/videos01.jpg'},
+            videoData:[
+                {name:'生产过程-装配',img:'../img/videos01.jpg'},
+                {name:'生产过程喷塑',img:'../img/videos02.jpg'},
+                {name:'生产过程-涂装',img:'../img/videos03.jpg'},
+                {name:'生产过程-板焊',img:'../img/videos04.jpg'},
+                {name:'生产过程下料',img:'../img/videos05.jpg'},
+                {name:'生产过程机加工',img:'../img/videos06.jpg'},
+                {name:'生产过程-装配',img:'../img/videos01.jpg'},
+                {name:'生产过程喷塑',img:'../img/videos02.jpg'},
+                {name:'生产过程-涂装',img:'../img/videos03.jpg'},
+                {name:'生产过程-板焊',img:'../img/videos04.jpg'},
+                {name:'生产过程下料',img:'../img/videos05.jpg'},
+                {name:'生产过程机加工',img:'../img/videos06.jpg'},
+            ],
+        },
+        methods:{
+            tabToggle(data,num){
+                this.tabItem = data;
+                this.tabActive = num;
+            }
+        },
+        created: function() {
+            // vant.Toast('提示');
+        }
+    })
+  
+</script>
+
+
+</html>

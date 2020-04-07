@@ -1248,6 +1248,188 @@
     width: 100%;
   }
 }
+.technique_banner {
+  width: 100%;
+  height: 3.65rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.technique_banner .en {
+  font-family: 'YouSheBiaoTiHei';
+  font-size: 0.48rem;
+  color: #ffffff;
+}
+.technique_banner .zh {
+  font-family: 'YouSheBiaoTiHei';
+  font-size: 0.36rem;
+  color: #ffffff;
+}
+.technique_banner .slogan {
+  font-size: 0.36rem;
+  color: #ffffff;
+}
+@media screen and (max-width: 576px) {
+  .technique_banner .zh,
+  .technique_banner .en {
+    font-size: 0.42rem;
+  }
+  .technique_banner .slogan {
+    font-size: 0.28rem;
+  }
+}
+.technique_play_video {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem !important;
+}
+.technique_play_video video {
+  width: 14rem;
+  height: 6rem;
+  background-color: #f7f7f7;
+}
+.technique_play_video .info {
+  width: calc(100% - 14rem);
+  height: 6rem;
+  background-color: #0172ff;
+  text-align: center;
+}
+.technique_play_video .info .text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1.4rem;
+}
+.technique_play_video .info .text .zh {
+  font-size: 0.48rem;
+  color: #ffffff;
+  width: 0.6rem;
+  line-height: 1;
+  margin-right: 0.2rem;
+}
+.technique_play_video .info .text .en {
+  font-size: 0.3rem;
+  color: #ffffff;
+  width: 0.3rem;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: bt-rl;
+  writing-mode: vertical-rl;
+  text-align: center;
+  word-wrap: break-word;
+}
+.technique_play_video .info button {
+  width: 1.3rem;
+  height: 0.4rem;
+  background-color: #66cbff;
+  font-size: 0.18rem;
+  color: #ffffff;
+  vertical-align: middle;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.technique_play_video .info button img {
+  width: 0.28rem;
+  margin-right: 0.1rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.05rem;
+}
+@media screen and (max-width: 576px) {
+  .technique_play_video {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .technique_play_video video {
+    width: 100%;
+    height: 8.5rem;
+  }
+  .technique_play_video .info .zh {
+    display: inline-block;
+    width: calc(100% - 0.5rem) !important;
+    background-color: #0172ff;
+    font-family: 'YouSheBiaoTiHei';
+    position: absolute;
+    left: 0.25rem;
+    top: -0.35rem;
+    text-align: center;
+  }
+  .technique_play_video .info .en {
+    display: none;
+  }
+  .technique_play_video .info button {
+    position: absolute;
+    width: 2.9rem !important;
+    height: 0.5rem !important;
+    background-color: #0172ff;
+    border-radius: 0.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -0.7rem;
+    text-align: center;
+  }
+}
+.technique_video_list ul {
+  margin-top: 0.4rem;
+}
+.technique_video_list ul li {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc((100% - 1.5rem) / 6);
+  margin-right: 0.3rem;
+  position: relative;
+}
+.technique_video_list ul li:hover .name,
+.technique_video_list ul li.active .name {
+  color: #66cbff;
+}
+.technique_video_list ul li:nth-child(6n) {
+  margin-right: 0;
+}
+.technique_video_list ul li .img {
+  width: 100%;
+  height: 1.5rem;
+  overflow: hidden;
+  border-radius: 0.07rem;
+}
+.technique_video_list ul li .img img {
+  max-width: 100%;
+  height: 100%;
+}
+.technique_video_list ul li .state {
+  position: absolute;
+  font-size: 0.14rem;
+  color: #ffffff;
+  top: 1.15rem;
+  left: 0.1rem;
+}
+.technique_video_list ul li .name {
+  font-size: 0.18rem;
+  color: #333333;
+  line-height: 0.58rem;
+  text-align: center;
+}
+@media screen and (max-width: 576px) {
+  .technique_video_list {
+    padding: 0 0.25rem;
+  }
+  .technique_video_list ul li {
+    width: calc((100% - 0.4rem) / 3);
+    margin-right: 0.2rem;
+  }
+  .technique_video_list ul li:nth-child(3n) {
+    margin-right: 0;
+  }
+  .technique_video_list ul li .img {
+    height: 1.38rem;
+  }
+  .technique_video_list ul li .state {
+    top: 1.05rem;
+  }
+}
 .flex-column-end {
   display: flex;
   flex-direction: column;
