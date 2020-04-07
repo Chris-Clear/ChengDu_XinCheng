@@ -474,28 +474,73 @@
   transform: rotate(180deg);
 }
 @media screen and (max-width: 576px) {
-  .index_product .menu {
+  .index_product .top_box {
+    margin-top: 0.55rem;
+    padding: 0 0.25rem;
+  }
+  .index_product .top_box .menu {
     display: none;
   }
   .index_product .index_product_list {
     display: none;
   }
 }
-.index_product_mobile .gallery .img {
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 4rem;
-  width: 100%;
+.index_product_mobile {
+  display: none;
 }
-.index_product_mobile .thumbs {
-  height: 1rem;
-}
-.index_product_mobile .thumbs .img {
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 1rem;
-  width: auto;
-  background-size: cover;
+@media screen and (max-width: 576px) {
+  .index_product_mobile {
+    padding: 0 0.25rem;
+    margin-top: 0.25rem;
+    display: block;
+  }
+  .index_product_mobile .gallery .img {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 4rem;
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    position: relative;
+  }
+  .index_product_mobile .gallery .img .title {
+    position: absolute;
+    left: -1px;
+    bottom: -1px;
+    width: calc(100% + 2px);
+    line-height: 0.7rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+    background-color: #0172ff;
+  }
+  .index_product_mobile .thumbs {
+    height: 1rem;
+    margin-top: 0.2rem;
+  }
+  .index_product_mobile .thumbs .swiper-slide {
+    border: 1px solid #e6e6e6;
+  }
+  .index_product_mobile .thumbs .swiper-slide.swiper-slide-active {
+    border: 1px solid #0172ff;
+  }
+  .index_product_mobile .thumbs .img {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 0.9rem;
+    width: auto;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .index_product_mobile .thumbs .img img {
+    width: 0.5rem;
+  }
+  .index_product_mobile .thumbs .img .more {
+    font-size: 0.2rem;
+    color: #0172ff;
+  }
 }
 .index_scgy {
   margin: 1rem auto !important;
@@ -1516,7 +1561,7 @@
 .service-detail .right .item .content {
   margin-top: 0.3rem;
   font-size: 0.18rem;
-  columns: #666666;
+  color: #666666;
 }
 .service-detail .right .item .content img {
   max-width: 100%;
@@ -1558,6 +1603,14 @@
   .service-detail .right {
     float: none;
     width: 100%;
+    margin-top: 0.3rem;
+  }
+  .service-detail .right .subheading {
+    font-size: 0.2rem !important;
+    margin-top: 0.05rem;
+  }
+  .service-detail .right .content {
+    font-size: 0.22rem !important;
   }
 }
 .technique_banner {

@@ -23,39 +23,43 @@
 </head>
 
 <body>
-    <div class="main" id="technique">
-        <!-- banner -->
-        <div class="technique_banner" style="background-image: url(../img/banner3.jpg);">
-            <!-- <p class="zh">生产工艺</p> -->
-            <p class="en">RROOUCTION PROCESS</p>
-            <p class="slogan">新成-更好的质量，更多的回馈</p>
-        </div>
-        <!-- 播放视频 -->
-       <div class="technique_play_video container">
-            <video controls>
-                <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"  type="video/mp4">
-                您的浏览器不支持 HTML5 video 标签。
-            </video>
-            <div class="info">
-                <div class="text">
-                    <p class="zh">{{tabItem.name}}</p>
-                    <p class="en">ASSEMBLY </p>
-                </div>
-                <button><img src="../img/slice/huifan.png">直播回放</button>
+    <div class="main hgt_full flex_column" id="technique">
+        <!-- 头部 -->
+        <common_head activeindex='0'></common_head>
+        <div class="flex_1 overflow_auto">
+            <!-- banner -->
+            <div class="technique_banner" style="background-image: url(../img/banner3.jpg);">
+                <!-- <p class="zh">生产工艺</p> -->
+                <p class="en">RROOUCTION PROCESS</p>
+                <p class="slogan">新成-更好的质量，更多的回馈</p>
             </div>
-       </div>
-       <!--视频列表 -->
-       <div class="technique_video_list container">
-           <ul>
-               <li :class="tabActive==index?'item active':'item'" v-for='(i,index) in videoData' @click='tabToggle(i,index)'>
-                   <div class="img">
-                    <img :src="i.img">
-                   </div>
-                   <p class="state">实时直播...</p>
-                   <p class="name line1">{{i.name}}</p>
-               </li>
-            </ul>
-       </div>
+            <!-- 播放视频 -->
+            <div class="technique_play_video container">
+                    <video controls>
+                        <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"  type="video/mp4">
+                        您的浏览器不支持 HTML5 video 标签。
+                    </video>
+                    <div class="info">
+                        <div class="text">
+                            <p class="zh">{{tabItem.name}}</p>
+                            <p class="en">ASSEMBLY </p>
+                        </div>
+                        <button><img src="../img/slice/huifan.png">直播回放</button>
+                    </div>
+            </div>
+            <!--视频列表 -->
+            <div class="technique_video_list container">
+                <ul>
+                    <li :class="tabActive==index?'item active':'item'" v-for='(i,index) in videoData' @click='tabToggle(i,index)'>
+                        <div class="img">
+                            <img :src="i.img">
+                        </div>
+                        <p class="state">实时直播...</p>
+                        <p class="name line1">{{i.name}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 <script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
