@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>产品展示</title>
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--分享使用-->
+    <meta itemprop="name" content="" />
+    <meta itemprop="description" name="description" content="" />
+    <meta itemprop="image" content="img_url" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="../lib/page.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/swiper4.1.6.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/EHComponents.css">
+    <link rel="stylesheet" type="text/css" href="../css/vant.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/ly.css">
+    <link rel="stylesheet" type="text/css" href="../css/zyd.css">
+</head>
+
+<body>
+    <div class="main" id="product">
+        <!-- banner -->
+        <div class="product_banner" style="background-image: url(../img/banner2.jpg);">
+            <!-- <p class="zh">产品展示</p> -->
+            <p class="en">PROOUCTS CENTER</p>
+            <p class="slogan">新成-因为我们专业，所以值得信赖</p>
+        </div>
+        <!-- 产品 -->
+        <div class="container product_tabs">
+            <div class="product_tabs_item">
+                <div class="tab_box">
+                    <input type="text" readonly=true :value='tabItem' class='tab_input'>
+                </div>
+                <!-- 产品名称列表 -->
+                <ul>
+                    <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
+                </ul>
+            </div>
+            <div class="product_tabs_body">
+                 <!-- 搜索框 -->
+                <div class="search">
+                    <input type="text">
+                    <div class="submit">搜索</div>
+                </div>
+                <!-- 产品图片列表 -->
+                <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
+                    <ul>
+                        <li v-for='a in 11'>
+                            <img src='../img/product1.jpg'>
+                            <p>{{i}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
+<script type="text/javascript" src="../lib/con_js.6.23.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/vant.min.js"></script>
+<script type="text/javascript" src="../lib/EHComponents.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#product',
+        data: {
+            content: 'wedawd',
+            tabActive:0,
+            tabItem:'汽车安全性能检测设备',
+            tabData:['汽车安全性能检测设备','汽车综合性能检测设备','汽车排放测试设备','4S站及修理厂用设备','摩托车检测设备汽车摩托车混检设备','汽车制造厂用检测设备','仪器仪表'],
+        },
+        methods:{
+            tabToggle(data,num){
+                this.tabItem = data;
+                this.tabActive = num;
+                if($('.tab_box').css("display")=='block'){
+                    $('.tab_box+ul').slideUp();
+                }
+            }
+        },
+        created: function() {
+            vant.Toast('提示');
+        }
+    })
+    $('.tab_box').click(function(){
+        $('.tab_box+ul').slideToggle(300);
+    })
+</script>
+
+
+</html>

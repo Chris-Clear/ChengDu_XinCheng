@@ -5,6 +5,8 @@
 @mobile_device:576px;
 //主题色
 @primary-color:#66cbff;
+//标题色
+@emphasis-color:#0172ff;
 @font-face{
     font-family: 'YouSheBiaoTiHei';
     src: url('../fonts/YouSheBiaoTiHei-2.ttf');
@@ -17,7 +19,7 @@
      .zh,.en{
          font-family: 'YouSheBiaoTiHei';
          font-size: .72rem;
-         color: #0172ff;
+         color: @emphasis-color;
          display: block;
          line-height: 1;
      }
@@ -26,7 +28,7 @@
         font-size: .36rem;
         color: #333333;
         line-height: 1;
-        margin-top: .4rem;
+        margin-top: .3rem;
      }
      @media screen and (max-width:@mobile_device){
          &{
@@ -34,7 +36,7 @@
                 font-size: .3rem;
             }
             .en~.en-t{
-                font-size: .3rem;
+                font-size: .26rem;
                 margin-top: .12rem;
             }
          }
@@ -179,7 +181,7 @@
     @media screen and (max-width:@mobile_device){
         &{
             padding: 0 .25rem;
-            margin-top: 1.9rem !important;
+            margin-top: 1.7rem !important;
             position: relative;
             &>.left_img{
                 width: 100%;
@@ -190,33 +192,28 @@
                 width: 100%;
                 height: auto;
                 float: none;
+                &>*{
+                    margin-bottom: .15rem;
+                }
                 .spreadhead{
                    position: absolute;
-                   top: -1.3rem;
+                   top: -1.15rem;
                    left: .2rem;
-                   .zh{
-                        width:1.32rem
-                    }
-                    .en{
-                        width:2.22rem
-                    }
-                    .en~.en-t{
-                        font-size: .3rem;
-                        margin-top: .13rem;
-                    }
                 }
                 .content{
                     font-size: .20rem;
                     color: #666666;
-                    -webkit-line-clamp: 7;
-                    max-height: 2.10rem;
-                    overflow: hidden;
                     margin-top: .2rem;
-                    text-overflow: ellipsis;
-                    -webkit-box-orient: vertical;
-                    display: -webkit-box;
+                    max-height: initial;
+                    // max-height: 2.10rem;
+                    // -webkit-line-clamp: 7;
+                    // overflow: hidden;
+                    // text-overflow: ellipsis;
+                    // -webkit-box-orient: vertical;
+                    // display: -webkit-box;
                 }
                 .more_btn{
+                    margin-top: 0.18rem;
                     align-self: center;
                     width: 2.06rem;
                     height: .7rem;
@@ -233,6 +230,7 @@
 }
 .index_xwdt{
     margin-top: 1rem !important;
+    height: 6.7rem;
     .tabs{
         float: left;
         width: 4.57rem;
@@ -249,9 +247,13 @@
             font-size: .24rem;
             color: #666666;
             margin-bottom: .3rem;
+            cursor: pointer;
             &.active{
                 background-color: @primary-color;
                 color: #ffffff;
+            }
+            &:hover{
+               opacity: .8;
             }
          }
     }
@@ -260,6 +262,7 @@
         float: right;
         display: flex;
         justify-content: space-between;
+        transition:all ease-in-out .2s;
         .picture{
             width: 4.7rem;
             height: 6.7rem;
@@ -365,12 +368,849 @@
         }
     }
 }
-.swiper-slide{
-    width:300px;/*设为固定值*/
-    width:auto;/*根据内容调整宽度*/
-    background-color: @primary-color;
-    border: 1px solid #333333;
-  }
+//企业介绍
+.profile_banner{
+    width: 100%;
+    height: 3.65rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .en{
+        font-family: 'YouSheBiaoTiHei';
+        font-size: .48rem;
+        color: #ffffff;
+    }
+    .zh{
+        font-family: 'YouSheBiaoTiHei';
+        font-size: .36rem;
+        color: #ffffff;
+    }
+    .slogan{
+        font-size: .36rem;
+        color: #ffffff;
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            .zh,.en{
+                font-size: .42rem;
+            }
+            .slogan{
+                font-size: .28rem;
+            }
+        }
+    }
+}
+.profile_about{
+    margin-top: 1rem !important;
+    &>.left_img{
+        width: 8.4rem;
+        height: 5.9rem;
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        float: left;
+    }
+    .desc{
+        width: 7.7rem;
+        height: 6rem;
+        float:right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        &>*{
+            margin-bottom: .4rem;
+            &:last-child{
+                margin-bottom: .2rem;
+            }
+        }
+        .content{
+            font-size: .14rem;
+            color: #666666;
+            max-height: 2.20rem;
+            overflow: hidden;
+            .key_point{
+                font-size: .2rem;
+                color:@emphasis-color ;
+            }
+        }
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            padding: 0 .25rem;
+            margin-top: .55rem !important;
+            // position: relative;
+            display: flex;
+            flex-direction: column-reverse;
+            &>.left_img{
+                width: 100%;
+                height: 3.4rem;
+                float: none;
+            }
+            .desc{
+                width: 100%;
+                height: auto;
+                float: none;
+                &>*{
+                    margin-bottom: .2rem;
+                   
+                }
+                .content{
+                    max-height:initial;
+                    font-size: .20rem;
+                    color: #666666;
+                    .key_point{
+                        font-size: .24rem;  
+                       margin-bottom: 0.05rem;
+                    }
+                }
+            }
+        }
+    }
+}
+.profile_zc{
+    margin-top: 1rem !important;
+    &>.right_img{
+        width: 8.4rem;
+        height: 5.3rem;
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        float: right;
+    }
+    .desc{
+        width: 7.7rem;
+        height: 6rem;
+        float: left; ;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        &>*{
+            margin-bottom: .4rem;
+            &:last-child{
+                margin-bottom: .2rem;
+            }
+        }
+        .content{
+            font-size: .14rem;
+            color: #666666;
+            max-height: 3.1rem;
+            overflow: hidden;
+        }
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            padding: 0 .25rem;
+            margin-top: .55rem !important;
+            // position: relative;
+            display: flex;
+            flex-direction: column-reverse;
+            &>.right_img{
+                width: 100%;
+                height: 3.4rem;
+                float: none;
+            }
+            .desc{
+                width: 100%;
+                height: auto;
+                float: none;
+                &>*{
+                    margin-bottom: .2rem;
+                }
+                .content{
+                    font-size: .20rem;
+                    color: #666666;
+                    max-height: initial;
+                }
+            }
+
+        }
+    }
+}
+// TODO 翻页样式，图片间隔图标显示不对
+.profile_team{
+    height: 6.2rem;
+    .swiper-slide-next+.swiper-slide+.swiper-slide>.team-item:after{
+        content: none;
+    }
+    .team-item{
+        width:inherit;/*根据内容调整宽度*/
+        padding: 0 1rem;
+        text-align: center;
+        position: relative;
+        img{
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+        }
+        .name{
+            color: #333333;
+            font-size: .24rem;
+        }
+        .post{
+            color: #666666;
+            font-size: .16rem;
+            padding-bottom: .05rem;
+            display: inline-block;
+            border-bottom: 1px solid #666666;
+        }
+        .obtain{
+            color: #666666;
+            font-size: .14rem;
+            word-break: break-word;
+            white-space: normal;
+            text-align: left;
+            margin-top: .05rem;
+        }
+        &::after{
+            content: '';
+            background: url(../img/slice/icon-team.png) center no-repeat;
+            background-size: contain;
+            width: 0.66rem;
+            height: 0.2rem;
+            display: block;
+            position: absolute;
+            top: 23%;
+            right: -0.44rem;
+        }
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            height: auto;
+            .swiper-slide-next>.team-item:after{
+                content: none;
+            }
+            .team-item{
+                padding: calc((100% - 2.05rem) / 2);
+                img{
+                    width: 2.05rem;
+                    height: 2.05rem;
+                    border-radius: 50%;
+                }
+                .post{
+                    font-size: .22rem;
+                    color: #333333;
+                }
+                .obtain{
+                    color: #333333;
+                    font-size: .22rem;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+.profile_ryzz{
+    font-size: 0px;
+    .left-div{
+        width: 6rem;
+        height: 6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        float: left;
+        overflow: hidden;
+        ul{
+            li{
+                font-size: 0.16rem;
+                color: #666666;
+                margin-top: 0.35rem;
+                padding-right:1rem ;
+                list-style: initial;
+                text-indent: 0.16rem;
+            }
+        }
+    }
+    .profile_ryzz_swiper{
+        width: calc(100% - 6rem);
+        height: 6rem;
+        background-color: #80b8ff;
+        float: right;
+        padding: .7rem 0 0 0.5rem ;
+        font-size:0px;
+        img{
+            width: 3rem;
+            margin-left:.4rem;
+            &:nth-child(2),&:nth-child(3){
+                margin-bottom: .2rem;
+            }
+            vertical-align: middle;
+            float: left;
+        }
+        .honor1 {
+            float: left;
+            margin-left:0rem;
+        }
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            .left-div{
+                float:none;
+                width:100%;
+                padding-top: 0.55rem;
+                height: auto;
+                padding: 0 0.25rem;
+                margin-bottom: 0.2rem;
+                ul{
+                    li{
+                        padding-right:0rem ;
+                    }
+                }
+            }
+            .profile_ryzz_swiper{
+                .swiper-slide{
+                    text-align: center;
+                    &:nth-child(1){
+                        .honor4,.honor5{
+                            display: none;
+                        }
+                    }
+                }
+                width: auto;
+                float: none;
+                background-color: @primary-color;
+                padding: 0.5rem 0.2rem 1rem;
+                img{
+                    width: 2.75rem;
+                    height: auto;
+                    float: left;
+                    margin-left: 0;
+                }
+                .honor1{
+                    // margin-right: 0.4rem;
+                }
+                .honor2{
+                    margin-bottom: 0.2rem;
+                    float: right;
+                }
+                .honor3{
+                    float: right;
+                }
+                .honor4{
+                    width: 5rem;
+                    float: none;
+                }
+                .honor5{
+                    width: 5rem;
+                    float: none;
+                }
+
+            }
+        }
+    }
+}
+//产品展示
+.product_banner{
+    width: 100%;
+    height: 3.65rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .en{
+        font-family: 'YouSheBiaoTiHei';
+        font-size: .48rem;
+        color: #ffffff;
+    }
+    .zh{
+        font-family: 'YouSheBiaoTiHei';
+        font-size: .36rem;
+        color: #ffffff;
+    }
+    .slogan{
+        font-size: .36rem;
+        color: #ffffff;
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            .zh,.en{
+                font-size: .42rem;
+            }
+            .slogan{
+                font-size: .28rem;
+            }
+        }
+    }
+}
+.product_tabs{
+    .product_tabs_item{
+        .tab_box{
+            display: none;
+        }
+        
+        ul{
+            border-bottom: 2px solid #e6e6e6;
+            li{
+                display: inline-block;
+                padding-left: 0.3rem;
+                color: #333333;
+                line-height: 0.8rem;
+                font-size: 0.18rem;
+                transition:all linear 0.2s;
+                &.active{
+                    color: @primary-color;
+                }
+                &:hover{
+                    color: @primary-color;
+                }
+            }
+        }
+        @media screen and (max-width:@mobile_device){
+            &{
+                padding: 0 0.25rem;
+                position: relative;
+                .tab_box{
+                    display: block;
+                    .tab_input{
+                        font-size: .22rem;
+                        color: #0050ff;
+                        margin: 0.4rem  0 0.2rem;
+                    }
+                    &::after{
+                        content: '';
+                        display: inline-block;
+                        width: 0;
+                        height: 0;
+                        border-width: 0.15rem 0.08rem ;
+                        border-style: solid ;
+                        border-color: #66cbff transparent transparent transparent;
+                        vertical-align: middle;
+                        margin-top: 0.1rem;
+                    }
+                }
+                .mark{
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.1);
+                }
+                 ul{
+                    display: none;
+                    position: absolute;
+                    top: .8rem;
+                    left: 0.2rem;
+                    max-width:80%;
+                    height: 4rem;
+                    overflow: auto;
+                    z-index: 10;
+                    background-color: #eeeeee;
+                    padding: 0 0.2rem;
+                    border-radius: 5px ;
+                    li{
+                        display: block;
+                        line-height: 0.5rem;
+                        padding-left: 0rem;
+                        border-bottom: 1px solid #e6e6e6;
+                    }
+                }
+            }
+        }
+    }
+    .product_tabs_body{
+        .search{
+            width: 100%;
+            display:flex;
+            justify-content: flex-end;
+            margin: 0.3rem 0;
+            height: 0.4rem;
+            font-size: 0px;
+            &>input{
+                width: 3.35rem;
+                height: inherit;
+                border: 1px solid @emphasis-color;
+                display:inline-block;
+                vertical-align: middle;
+                padding:0 0.1rem;
+                border-top-left-radius: 0.2rem;
+                border-bottom-left-radius: 0.2rem;
+            }
+            &>.submit{
+                background-color: @emphasis-color;
+                display:inline-block;
+                width:  0.96rem;
+                height: inherit;
+                font-size: 0.16rem;
+                border: 1px solid @emphasis-color;
+                border-top-right-radius:0.2rem;
+                border-bottom-right-radius:0.2rem;
+                text-align: center;
+                vertical-align: middle;
+                color: #ffffff;
+                line-height: 0.4rem;
+                cursor: pointer;
+            }
+        }
+        .item{
+            display: none;
+            &.active{
+                display: block;
+            }
+            ul{
+                width: 100%;
+                font-size: 0px;
+                li{
+                    width: calc((100% - 1.8rem) / 7);
+                    height: 3.40rem;
+                    border: 2px solid #e6e6e6;
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin:0 0.3rem  0.3rem 0;
+                    &:nth-child(7n){
+                        margin-right: 0;
+                    }
+                    img{
+                        max-width: 100%;
+                        display: block;
+                    }
+                    p{
+                        width: calc(100% + 4px);
+                        position: absolute;
+                        left: -2px;
+                        bottom: -2px;
+                        font-size: 0.18rem;
+                        color: #333333;
+                        line-height: 0.54rem;
+                        text-align: center;
+                        transition: background linear 0.2s;
+                        &:hover{
+                            color: #ffffff;
+                            background-color: @emphasis-color;
+                        }
+                    }
+                }
+            }
+        }
+        @media screen and (max-width:@mobile_device){
+            &{
+                padding: 0 0.25rem;
+                .search{
+                    margin: 0 0  0.3rem 0;
+                    height: 0.5rem;
+                    &>input{
+                        width: calc(100% - 1rem);
+                        border-top-left-radius: 0.25rem;
+                        border-bottom-left-radius: 0.25rem;
+                    }
+                    &>.submit{
+                        width:  1rem;
+                        line-height: 0.5rem;
+                        border: top right radius 0.25rem;
+                        border-bottom-right-radius:0.25rem;
+                    }
+                }
+                .item{
+                    display: none;
+                    &.active{
+                        display: block;
+                    }
+                    ul{
+                        width: 100%;
+                        font-size: 0px;
+                        li{
+                            width: calc((100% - .2rem) / 2);
+                            height: 2.83rem;
+                            margin:0 0.2rem  0.2rem 0;
+                            &:nth-child(2n){
+                                margin-right: 0;
+                            }
+                            p{
+                                font-size: 0.24rem;
+                                line-height: 0.5rem;
+                                color: #ffffff;
+                                background-color: @emphasis-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//服务支持
+.service_banner{
+    width: 100%;
+    height: 3.65rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .en{
+        font-family: 'YouSheBiaoTiHei';
+        font-size: .48rem;
+        color: #ffffff;
+    }
+    .zh{
+        font-family: 'YouSheBiaoTiHei';
+        font-size: .36rem;
+        color: #ffffff;
+    }
+    .slogan{
+        font-size: .36rem;
+        color: #ffffff;
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            .zh,.en{
+                font-size: .42rem;
+            }
+            .slogan{
+                font-size: .28rem;
+            }
+        }
+    }
+}
+.service_tabs{
+    .service_tabs_item{
+        ul{
+            border-bottom: 2px solid #e6e6e6;
+            li{
+                display: inline-block;
+                padding-left: 0.3rem;
+                color: #333333;
+                line-height: 0.8rem;
+                font-size: 0.18rem;
+                transition:all linear 0.2s;
+                &.active{
+                    color: @primary-color;
+                }
+                &:hover{
+                    color: @primary-color;
+                }
+            }
+        }
+        @media screen and (max-width:@mobile_device){
+            &{
+                padding: 0 0.25rem;
+                ul{
+                    border-bottom: 1px solid #e6e6e6;
+                }
+            }
+        }
+    }
+    .service_tabs_body{
+        .search{
+            width: 100%;
+            display:flex;
+            justify-content: flex-end;
+            margin: 0.3rem 0;
+            height: 0.4rem;
+            font-size: 0px;
+            &>input{
+                width: 3.35rem;
+                height: inherit;
+                border: 1px solid @emphasis-color;
+                display:inline-block;
+                vertical-align: middle;
+                padding:0 0.1rem;
+                border-top-left-radius: 0.2rem;
+                border-bottom-left-radius: 0.2rem;
+            }
+            &>.submit{
+                background-color: @emphasis-color;
+                display:inline-block;
+                width:  0.96rem;
+                height: inherit;
+                font-size: 0.16rem;
+                border: 1px solid @emphasis-color;
+                border-top-right-radius:0.2rem;
+                border-bottom-right-radius:0.2rem;
+                text-align: center;
+                vertical-align: middle;
+                color: #ffffff;
+                line-height: 0.4rem;
+                cursor: pointer;
+            }
+        }
+        .item{
+            display: none;
+            margin-bottom: 0.8rem;
+            &.active{
+                display: block;
+            }
+            ul{
+                width: 100%;
+                font-size: 0px;
+                li{
+                    width: calc((100% - 0.5rem) / 2);
+                    height: 0.8rem;
+                    position: relative;
+                    display: inline-flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    vertical-align: middle;
+                    margin-right:0.5rem;
+                    margin-bottom:0.5rem;
+                    padding:0 0.3rem;
+                    box-shadow:0 0 0.1rem 0 rgba(0,0,0,0.2);
+                    &:nth-child(2n){
+                        margin-right: 0;
+                    }
+                    &:hover{
+                        background-color: @emphasis-color;
+                        .desc{
+                            .default{
+                                display: none;
+                            }
+                            .hover{
+                                display: block;
+                            }
+                            p{
+                                .text,.date{
+                                    color: #ffffff ;
+                                }
+                            }
+                        }
+                        button{
+                            color: #ffffff ;
+                            background-color: @primary-color;
+                        }
+                    }
+                   .desc{
+                        display: flex;
+                        justify-content: center;
+                        .default{
+                            display: block;
+                            width: 0.44rem;
+                            margin-right: 0.2rem;
+                        }
+                        .hover{
+                            display: none;
+                            width: 0.44rem;
+                            margin-right: 0.2rem;
+                        }
+                        p{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .text{
+                                font-size: 0.2rem;
+                                color: #333333;
+                            }
+                            .date{
+                                font-size: 0.14rem;
+                                color: #666666;
+                            }
+                        }
+                   }
+                   button{
+                       width: 1.30rem;
+                       height: 0.4rem;
+                       background-color: #ececec;
+                       font-size: 0.18rem;
+                       color: #333333;;
+                   }
+                }
+            }
+            .page{
+                text-align: center;
+                font-size: 0px;
+                .prev,.next{
+                    width: 0.6rem;
+                    height: 0.4rem;
+                    background:#e6e6e6 url(../img/slice/icon_next.png) center no-repeat; 
+                    background-size: 0.19rem;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: @primary-color;
+                    }
+                }
+                .prev{
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        @media screen and (max-width:@mobile_device){
+            &{
+                padding: 0 0.25rem;
+                .search{
+                    margin: 0.15rem 0  0.3rem 0;
+                    height: 0.5rem;
+                    &>input{
+                        width: calc(100% - 1rem);
+                        border-top-left-radius: 0.25rem;
+                        border-bottom-left-radius: 0.25rem;
+                    }
+                    &>.submit{
+                        width:  1rem;
+                        line-height: 0.5rem;
+                        border: top right radius 0.25rem;
+                        border-bottom-right-radius:0.25rem;
+                    }
+                }
+                .item{
+                    display: none;
+                    &.active{
+                        display: block;
+                    }
+                    ul{
+                        width: 100%;
+                        font-size: 0px;
+                        li{
+                            width: 100%;
+                            height: 0.86rem;
+                            margin-bottom:0.15rem;
+                            &:hover{
+                                background-color: #ffffff !important;
+                                p{
+                                    .text,.date{
+                                        color: #333333 !important;
+                                    }
+                                }
+                                .default{
+                                    display: block !important;
+                                }
+                                .hover{
+                                    display: none !important;
+                                }
+                            }
+                        }
+                        button{
+                            background-color: #ffffff !important;
+                            font-size: 0px !important;
+                            width: 0.2rem !important;
+                            height: .35rem !important;
+                            background: url(../img/slice/icon4.png) center no-repeat;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//服务支持 详情
+.service-detail{
+    padding-top: 0.6rem;
+    .left{
+        width: 5.3rem;
+        ul{
+            border:1px solid #e6e6e6;
+            padding: 0 0.2rem;
+            li{
+                line-height: 0.54rem;
+                font-size: 0.14rem;
+                color: #666666;
+            }
+        }
+    }
+}
+// .swiper-slide{
+//     width:300px;/*设为固定值*/
+//     width:auto;/*根据内容调整宽度*/
+//     background-color: @primary-color;
+//     border: 1px solid #333333;
+//   }
 .flex-column-end{
     display: flex;
     flex-direction: column;

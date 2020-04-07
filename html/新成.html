@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>新城</title>
     <script type="text/javascript" src="../lib/page.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/swiper4.1.6.min.css">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
@@ -35,7 +35,7 @@
         <div class="index_banner" style="background-image: url(../img/videos1.jpg);">
             <div class="container con">
                 <p class="title">
-                    <span class="brand">新城——</span>
+                    <span class="brand">新城—</span>
                     <span class="slogan">因为我们专业，所以值得信任</span>
                 </p>
                 <div class="btn_list">
@@ -110,8 +110,8 @@ OEM.ODM产品及相关服务。用更好的产品质量、快捷的供货,服务
                     <p class="en">DYNAMIC</p>
                     <p class="en-t">新闻动态</p>
                 </div>
-                <p class="tabs-item active">公司新闻</p>
-                <p class="tabs-item">行业新闻</p>
+                <p :class="news?'tabs-item ':'tabs-item active'" @click='news=false'>公司新闻</p>
+                <p :class="news?'tabs-item active':'tabs-item '" @click='news=true'>行业新闻</p>
             </div>
             <div class="tabs-body"  v-show='!news'>
                 <div class="picture" style="background-image: url(../img/news-01.jpg);"></div>

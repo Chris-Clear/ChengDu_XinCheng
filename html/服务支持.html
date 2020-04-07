@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>服务支持</title>
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--分享使用-->
+    <meta itemprop="name" content="" />
+    <meta itemprop="description" name="description" content="" />
+    <meta itemprop="image" content="img_url" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="../lib/page.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/swiper4.1.6.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/EHComponents.css">
+    <link rel="stylesheet" type="text/css" href="../css/vant.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/ly.css">
+    <link rel="stylesheet" type="text/css" href="../css/zyd.css">
+</head>
+
+<body>
+    <div class="main" id="service">
+        <!-- banner -->
+        <div class="service_banner" style="background-image: url(../img/banner.jpg);">
+            <!-- <p class="zh">服务支持</p> -->
+            <p class="en">OOCUMENT OOWNLOAP</p>
+            <p class="slogan">新成-更好的质量，更多的回馈</p>
+        </div>
+        <!-- 菜单 -->
+        <div class="container service_tabs">
+            <div class="service_tabs_item">
+                <ul>
+                    <li :class="tabActive==index?'active':''" @click='tabToggle(i,index)' v-for='(i,index) in tabData' v-clock>{{i}}</li>
+                </ul>
+            </div>
+            <div class="service_tabs_body">
+                 <!-- 搜索框 -->
+                <div class="search">
+                    <input type="text">
+                    <div class="submit">搜索</div>
+                </div>
+                <!-- 产品图片列表 -->
+                <div :class="tabActive==index?'item active':'item'" v-for='(i,index) in tabData' v-clock>
+                    <ul>
+                        <li v-for='a in 11'>
+                            <div class="desc">
+                                <img class="default" src="../img/slice/question-black.png">
+                                <img class="hover" src="../img/slice/question-white.png">
+                                <p class="">
+                                    <span class="text line1">{{i}}</span>
+                                    <span class="date">2019-06-12</span>
+                                </p>
+                            </div>
+                            <button>立即查看</button>
+                        </li>
+                    </ul>
+                    <!-- 分页 -->
+                    <div class="page">
+                        <button class="prev"></button>
+                        <button class="next"></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
+<script type="text/javascript" src="../lib/con_js.6.23.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/vant.min.js"></script>
+<script type="text/javascript" src="../lib/EHComponents.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#service',
+        data: {
+            content: 'wedawd',
+            tabActive:0,
+            tabItem:'汽车安全性能检测设备',
+            tabData:['常见问题解答','设备规格书','标准法规','工具软件','其他'],
+        },
+        methods:{
+            tabToggle(data,num){
+                this.tabItem = data;
+                this.tabActive = num;
+                if($('.tab_box').css("display")=='block'){
+                    $('.tab_box+ul').slideUp();
+                }
+            }
+        },
+        created: function() {
+            vant.Toast('提示');
+        }
+    })
+    $('.tab_box').click(function(){
+        $('.tab_box+ul').slideToggle(300);
+    })
+</script>
+
+
+</html>
