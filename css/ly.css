@@ -510,10 +510,37 @@ textarea, input ,button{
 	width: 0.5rem;
 	height: 0.8rem;
 }
+.newsBoxlist{
+	width: calc((100% - 0.99rem) / 4);
+    height: 4.2rem;
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    vertical-align: middle;
+    margin-right: 0.33rem;
+    margin-bottom: 0.33rem;
+    box-shadow: 0 0 0.1rem 0 rgba(0, 0, 0, 0.2);
+}
+.newsBoxlist:nth-child(4n) {
+    margin-right: 0;
+}
+.l-pad15{
+	padding: 0 .15rem;
+}
 @media screen and (max-width:576px){
-	.serviceSpt .queBox {
-		width: 100%;
-		margin: 0 0 0.3rem 0;
+	.newsBoxlist{
+		width: calc((100% - 0.33rem) / 2);
+		height: 4.2rem;
+		position: relative;
+		display: inline-block;
+		align-items: center;
+		vertical-align: middle;
+		margin-right: 0.33rem;
+		margin-bottom: 0.33rem;
+		box-shadow: 0 0 0.1rem 0 rgba(0, 0, 0, 0.2);
+	}
+	.newsBoxlist:nth-child(2n) {
+		margin-right: 0;
 	}
 }
 
