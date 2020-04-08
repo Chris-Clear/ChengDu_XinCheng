@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新城</title>
+    <script type="text/javascript" src="../lib/page.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/swiper4.1.6.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/EHComponents.css">
+    <link rel="stylesheet" type="text/css" href="../css/vant.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/ly.css">
+    <link rel="stylesheet" type="text/css" href="../css/zyd.css">
+</head>
+<body>
+    <div class="main hgt_full flex_column" id="product_detail">
+        <!-- 头部 -->
+        <common_head activeindex='0'></common_head>
+        <div class="flex_1 overflow_auto">
+            <div class='product_detail container'>
+                <div class="tab_box">
+                    <input type="text" readonly=true :value='tabItem' class='tab_input'>
+                </div>
+                <ul class="level_1_menu">
+                    <li :class="tabActive==index?'active':''" @click='tabToggle(L1,index)'  v-for='(L1,index) in tabData'>
+                        <p class="level_1_title">{{L1}}</p>
+                        <ul class="level_2_menu" >
+                            <li :class="scgyActive==y?'active':''" @click='scgyToggle(L2,y)' v-for='(L2,y)  in scgyData'>
+                                <p class="level_2_title">{{L2,y}}</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- 详情 点击二级菜单再请求数据-->
+                <div class="detail-more">
+                    <!-- 产品展示 -->
+                    <div class="top">
+                        <!-- 轮播 -->
+                        <div class="product_detail_swiper">
+                            <div id="gallery" class="swiper-container gallery" style="margin-bottom: 10px;">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-no-swiping" v-for='(i,index) in imgList' >
+                                        <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button-prev swiper-button-white"></div>
+                                    <div class="swiper-button-next swiper-button-white"></div>
+                            </div>
+                            <div id="thumbs" class="swiper-container thumbs">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for='i in imgList' >
+                                        <div class="img" :style="{backgroundImage: 'url(' +i+ ')'}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- 详情描述 -->
+                        <div class="desc">
+                            <p class="name">{{scgyItem}}</p>
+                            <p class="subtitle">[用途及适用范围]</p>
+                            <p class="text_content">
+                                侧滑检验台主要用于动态测量汽车前轮侧滑量,并判断
+                                是否合格。CH-3FA、CH-10FA(S)、 CH-15FA(S).
+                                CH-18(S)型侧滑检验台分别适用于轴载质量不大于3
+                                t.10t. 15t、18 t的各型单、双转向桥的汽车。
+                                侧滑检验台带有放松板，车轮驶上侧滑板前先经过放松
+                                板，以消除车轮与地面间产生的向内或向外的侧滑力。
+                            </p>
+                            <p class="subtitle">[主要特点]</p>
+                            <ul class="trait_list">
+                                <li>双板联动式侧滑台，技术成熟，制造工艺先进，多年
+                                    批量生产，质量稳定。产品畅销国内外，能够长期可靠
+                                    稳定地工作。</li>
+                                <li>框架为16号槽钢焊接的整体箱型结构，强度高，高度
+                                    尺寸小。</li>
+                                <li>带300 mm放松板，符合GB 21861- -2014《机动车安
+                                    全技术检验项目和方法》的要求。</li>
+                                <li>产品依据中华人民共和国交通部标准JT/T
+                                    507-2004《汽车侧滑检验台》设计、制造和检验。</li>
+                            </ul>
+                            <!-- 直播,下载规格书 -->
+                            <ul class="down_list">
+                                <li>
+                                    <div class="word">
+                                        <img class="default" src="../img/slice/videos.png">
+                                        <p class="">
+                                            <span class="text line1">汽车侧滑检验台生产过程直播</span>
+                                            <span class="date">生产过程直播及夜间回放                                                        </span>
+                                        </p>
+                                    </div>
+                                    <!-- pc按钮 -->
+                                    <button class="btn_p">立即观看</button>
+                                     <!-- 移动端图片 -->
+                                    <img class="btn_m" src="../img/slice/icon_videos.png" alt="立即观看">
+                                </li>
+                                <li>
+                                    <div class="word">
+                                        <img class="default" src="../img/slice/file-black.png">
+                                        <p class="">
+                                            <span class="text line1">汽车侧滑检验台技术规格书.</span>
+                                            <span class="date">文件类型: . doc  文件大小: 67 KB   </span>                                                     </span>
+                                        </p>
+                                    </div>
+                                    <!-- pc按钮 -->
+                                    <button class="btn_p">立即下载</button>
+                                     <!-- 移动端图片 -->
+                                    <img class="btn_m" src="../img/slice/icon_download.png" alt="立即下载">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 产品特性 -->
+                    <div class="doc">
+                        <!-- <p class="zh">产品特性</p> -->
+                        <p class="en">FEATURES <span class="en-t">产品特性</span>
+                        </p>
+                        <div class="content">
+                            <p class="m-b-30">内置电动云台和-体化变焦重头， 施工便易，方便适性</p>
+                            <p class="m-b-30">支持三种智能资源切换:人脸抓拍。混合国杨检测(健模比对。全绍构化)</p>
+                            <p class="m-b-30">人检机拍:支持同时检测30年人验。支持人脸去课理。快建抓拍人脸，支持对造动人脸进行检测。银拍。评外。物选。输出量优的人脸探图，支持人验属性分析</p>
+                            <p class="m-b-30">混台日标检测(企结构化) : 支持人险+人体+车辆抓拍。对目标进行检测。评分，轴出最优机的图。支持人检+人体+车辆属性分析</p>
+                            <p class="m-b-30">混台日标检测健檀对比) : 支持人险+人体探拍，对目标进行检测。评分。输出量优照拍图。支持人险+人体属性分析和建模比对</p>
+                            <p class="m-b-30">司支持的题人险比对;创麦持最多什人脸库的管理; 0支持最多9万甄人验的导入; d)支持合计人整库的存储空间量大3CB,单甄人碰不想过00;的支持不同人险库不同时间布的;支持属名单比对成功复警输出; )支持人脸难美40德素以上的人险检测; h麦持人经续建比对
+                            多种比对方式设置</p>
+                            <p class="m-b-30">由用场最</p>
+                            <p class="m-b-30">温台网络高清-体化云台的型理像机的种神特性使之司广泛皮用于需更大范国高清西质监控的场所，如:人行道。小区出入口。青街小巷。厦马线。潍行车道。 地铁出入口零场所。</p>
+                            <p class="m-b-30">订货型号</p>
+                            <p class="m-b-30">结构尺寸图</p>
+                            <img src="../img/product-img1.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- 底部 -->
+            <common_foot></common_foot>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/swiper.min.js"></script>
+<script type="text/javascript" src="../lib/con_js.6.23.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/vant.min.js"></script>
+<script type="text/javascript" src="../lib/EHComponents.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#product_detail',
+        data: {
+            content: 'wedawd',
+            news:false,//tru公司新闻 false 行业新闻
+            tabActive:0,
+            tabItem:'汽车安全性能检测设备',
+            tabData:['汽车安全性能检测设备','汽车综合性能检测设备','汽车排放测试设备','汽车制造厂用检测设备','仪器仪表'],
+            scgyActive:0,
+            scgyItem:'喷塑',
+            scgyData:[' 汽车侧滑检验台','汽车轮重仪','汽车制动检验台','汽车车速表检验台','平板制动检验台','xxxxx','bbbbb'],
+            imgList:['../img/product1.jpg','../img/product2.jpg','../img/product3.jpg','../img/product4.jpg']
+        },
+        methods:{
+            //一级菜单
+            tabToggle(data,num){
+                this.tabItem = data;
+                this.tabActive = num;
+            },
+            //二级菜单
+            scgyToggle(data,num){
+                this.scgyItem = data;
+                this.scgyActive = num;
+                if($('.tab_box').css("display")=='block'){
+                    $('.tab_box+ul').slideUp(300);
+                }
+            },
+        },
+        created: function() {
+
+            // vant.Toast('提示');
+        }
+    })
+    $('.tab_box').click(function(){
+        $('.tab_box+ul').slideToggle(300);
+    })
+    var thumbsSwiper = new Swiper('#thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        watchSlidesVisibility: true, //防止不可点击
+
+    })
+    var gallerySwiper = new Swiper('#gallery', {
+        effect : 'coverflow',
+        spaceBetween: 10, //缩略图间距
+        slidesPerView: 1,
+        centeredSlides: true,
+        loop: true,
+        noSwiping : true,
+        thumbs: {
+            swiper: thumbsSwiper,
+        },
+        on:{
+            click: function(event){
+                console.log(gallerySwiper.activeIndex );
+                $('#thumbs .swiper-slide:nth-child('+gallerySwiper.activeIndex+')').addClass("swiper-slide-active").siblings().removeClass("swiper-slide-active");
+            },
+        },
+    })
+</script>
+</script>
+</html>

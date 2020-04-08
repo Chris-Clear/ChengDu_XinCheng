@@ -1311,6 +1311,354 @@
         }
     }
 }
+//产品详情页
+.product_detail{
+    position: relative;
+    .tab_box{
+        display: none;
+    }
+    ul.level_1_menu{
+        font-size: 0;
+        border-bottom: 2px solid #e6e6e6;
+        margin-bottom: 1.3rem;
+        &>li{
+            line-height: 0.7rem;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: .18rem;
+            margin-right: 0.3rem;
+            &:hover{
+                .level_1_title{
+                    color: @primary-color;
+                }
+            }
+            &.active{
+                .level_1_title{
+                    color: @primary-color;
+                }
+                ul.level_2_menu{
+                    display: block;
+                }
+            }
+            &:last-child{
+                margin-right: 0rem;
+            }
+            ul.level_2_menu{
+                display: none;
+                position: absolute;
+                top: 0.7rem;
+                left: 0;
+                font-size: 0;
+                border: 2px soild #e6e6e6;
+                &>li{
+                    line-height: 0.7rem;
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: .18rem;
+                    margin-right: 0.3rem;
+                    .level_2_title{
+                        color: #333333;
+                    }
+                    &:hover{
+                        .level_2_title{
+                            color: @primary-color;
+                        }
+                        ul.level_2_menu{
+                            display: block;
+                        }
+                    }
+                    &.active{
+                        .level_2_title{
+                            color: @primary-color;
+                        }
+                    }
+                    &:last-child{
+                        margin-right: 0rem;
+                    }
+                }
+               
+            }
+        }
+    }
+    .detail-more{
+        .top{
+            display: flex;
+            justify-content: space-between;
+            .product_detail_swiper{
+                width: 7rem;
+                height: 5.5rem;
+                .gallery{
+                    .img{
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 4rem;
+                        width: 100%;
+                        // border: 1px solid #e6e6e6;
+                        position: relative;
+                    }
+                    
+                }
+                .thumbs{
+                    height: 1rem;
+                    margin-top: 0.2rem;
+                    .swiper-slide{
+                        border: 1px solid #e6e6e6;
+                        &.swiper-slide-active{
+                            border: 1px solid @emphasis-color;
+                        }
+                    }
+                    .img{
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 0.9rem;
+                        width: auto;
+                        background-size: cover;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        img{
+                            width: 0.5rem;
+                        }
+                        .more{
+                            font-size: 0.2rem;
+                            color: @emphasis-color;
+                        }
+                    }
+                }
+            }
+            .desc{
+                width: 9.3rem;
+                .name{
+                    font-size: 0.3rem;
+                }
+                .subtitle{
+                    font-size: 0.18rem;
+                    color: @emphasis-color;
+                    margin: 0.25rem 0 0.15rem;
+                }
+                .text_content{
+                    font-size: 0.14rem;
+                    color: #666666;
+                }
+                .trait_list{
+                    li{
+                        list-style: disc;
+                        text-indent: 2em;
+                        font-size: 0.14rem;
+                        color: #666666;
+                    }
+                }
+                .down_list{
+                    margin-top:0.4rem;
+                    li{
+                        width: 100%;
+                        height: 0.8rem;
+                        position: relative;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        vertical-align: middle;
+                        margin-top:0.2rem;
+                        padding:0 0.3rem;
+                        box-shadow:0 0 0.1rem 0 rgba(0,0,0,0.2);
+                       
+                        &:hover{
+                            // background-color: @emphasis-color;
+                            .btn_p{
+                                color: #ffffff ;
+                                background-color: @primary-color;
+                            }
+                        }
+                        .word{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            .default{
+                                width: 0.44rem;
+                                height: 100%;
+                                margin-right: 0.2rem;
+                            }
+                            p{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                .text{
+                                    font-size: 0.2rem;
+                                    color: #333333;
+                                }
+                                .date{
+                                    font-size: 0.14rem;
+                                    color: #666666;
+                                }
+                            }
+                       }
+                       .btn_p{
+                           width: 1.30rem;
+                           height: 0.4rem;
+                           background-color: #ececec;
+                           font-size: 0.18rem;
+                           color: #333333;;
+                       }
+                       .btn_m{
+                           display: none;
+                       }
+                    }
+                        
+                }
+               
+            }
+        }
+        .doc{
+            margin-top: 1rem;
+            .zh{
+                font-family: 'YouSheBiaoTiHei';
+                font-size: .36rem;
+                color: @emphasis-color;
+                border-bottom: 1px solid #cccccc;
+            }
+            .en{
+                font-family: 'YouSheBiaoTiHei';
+                font-size: .36rem;
+                color: @emphasis-color;
+                border-bottom: 1px solid #eeeeee;
+                display: flex;
+                align-items: center;
+                .en-t{
+                    font-size: 0.24rem;
+                    color: #333333;
+                    &::before{
+                        content: '';
+                        width: 1px;
+                        height: 0.16rem;
+                        background-color: #333333;
+                        vertical-align: middle;
+                        display: inline-block;
+                        margin-right: .1rem;
+                        margin-left: .1rem;
+                    }
+                }
+            }
+            .content{
+                padding: 0.15rem 0;
+                p{
+                    font-size: 0.14rem;
+                    color: #666666;
+                }
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+       
+    }
+    @media screen and (max-width:@mobile_device){
+        &{
+            padding: 0 0.25rem;
+            .tab_box{
+                display: block;
+                .tab_input{
+                    font-size: .22rem;
+                    color: #0050ff;
+                    margin: 0.4rem  0 0.2rem;
+                }
+                &::after{
+                    content: '';
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-width: 0.15rem 0.08rem ;
+                    border-style: solid ;
+                    border-color: #66cbff transparent transparent transparent;
+                    vertical-align: middle;
+                    margin-top: 0.1rem;
+                }
+            }
+            .level_1_menu{
+                display: none;
+                position: absolute;
+                top: .8rem;
+                left: 0rem;
+                width:100%;
+                height: 60vh;
+                overflow: auto;
+                z-index: 10;
+                background-color: #ffffff;
+                li{
+                    display: block !important;
+                    line-height: 0.5rem;
+                    padding-left: 0rem;
+                    width: 50%;
+                    background-color: #eeeeee;
+                    padding: 0 0.1rem;
+                    .level_1_title{
+                        display: inline-block;
+                    }
+                    ul.level_2_menu{
+                        width: 50%;
+                        top: 0rem !important;
+                        left: 50% !important;
+                        
+                        &>li{
+                            width: 100% !important;
+                            background-color: #ebedf0;
+                        }
+                    }
+                        
+                }
+            }
+            .detail-more{
+                margin-top: 0.25rem;
+                .top{
+                    justify-content: center;
+                    flex-direction: column;
+                    .product_detail_swiper{
+                        width: 100%;
+                    }
+                    .desc{
+                        width: 100%;
+                        .subtitle{
+                            font-size: 0.24rem;
+                        }
+                        .text_content{
+                            font-size: 0.20rem;
+                        }
+                        .trait_list{
+                            li{
+                                font-size: 0.2rem;
+                                margin-bottom: 0.3rem;
+                            }
+                        }
+                        .down_list{
+                            margin-top:0.4rem;
+                            li{
+                                .btn_p{
+                                    display: none;
+                                }
+                                .btn_m{
+                                    display: block;
+                                    width: 0.32rem;
+                                    height: 0.32rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .doc{
+                    margin-top: 0.4rem;
+                    .content{
+                        p{
+                            font-size: .20rem;
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+
+}
+
 //服务支持
 .service_banner{
     width: 100%;
@@ -1480,7 +1828,7 @@
                             }
                         }
                    }
-                   button{
+                  button{
                        width: 1.30rem;
                        height: 0.4rem;
                        background-color: #ececec;
