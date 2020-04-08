@@ -522,6 +522,7 @@ textarea, input ,button{
 	width: 100%;
 	height: 100px;
 	background-color: #ececec;
+	margin-top: .3rem;
 }
 .font12r{
 	font-size: .12rem;
