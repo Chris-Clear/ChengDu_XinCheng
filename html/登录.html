@@ -54,7 +54,7 @@
                     <a href="" class="font14r color-666">忘记密码？</a>
                 </div>
                 <div class="center font14r hgt06rem">
-                    <p class="color-666">登录即代表同意  <a class="color-0172ff" href="">《会员注册条款》</a></p>
+                    <p class="color-666">登录即代表同意  <i class="color-0172ff poiner" @click="layerShow=true">《会员注册条款》</i></p>
                 </div>
                 <button class="around-center loginBtn color-fff font18r">登录</button>
                 <a href="" class="around-center hgt06rem font18r color-0172ff">立即注册</a>
@@ -63,6 +63,16 @@
         </div>
         <!-- 底部 -->
         <common_foot></common_foot>
+        <div v-if="layerShow" class="markBox">
+            <div class="mark pad20r" style="width: 80%;padding-bottom: 0 !important;">
+                <div class="color-333 font18r  overflow_auto" style="min-height: 4rem;max-height: 8rem;">
+                    富文本内容
+                </div>
+                <div class="around-center hgt10rem">
+                    <button @click="layerShow=false" class="loginBtn poiner wid30rem font20r color-fff">确定</button>
+                </div>
+            </div>
+        </div>
     </section>
 
 </body>
@@ -76,7 +86,8 @@
     var app = new Vue({
         el: '#app',
         data: {
-            content: 'wedawd'
+            content: 'wedawd',
+            layerShow:false
         },
         methods:{
 
