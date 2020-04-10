@@ -200,10 +200,10 @@ textarea, input ,button{
 	/* border-bottom: 3px solid transparent; */
 	position: relative;
 }
-.c-nav ul li a:hover{
+.c-nav ul li>a:hover{
 	border-bottom: 2px solid #66cbff;
 }
-.c-nav ul li a:hover::after{
+.c-nav ul li>a:hover::after{
 	content: '';
 	position: absolute;
 	width:0;
@@ -215,6 +215,9 @@ textarea, input ,button{
 	left: 50%;
 	margin-left: -3px;
 }
+.c-nav ul li>a:hover .hoverLists{
+	display: block;
+}
 .c-nav .logo{
 	height:40px;
 }
@@ -224,6 +227,28 @@ textarea, input ,button{
 	padding: 3px 8px 3px 8px;
 	box-sizing: content-box;
 	border: 1px solid transparent;
+}
+.hoverLists{
+	display: none;
+	position: absolute;
+	width: 1.61rem;
+	top: 26px;
+	left: 50%;
+	margin-left: -.8rem;
+	height: auto;
+	background-color: #ffffff;
+	box-shadow: 0rem 0.04rem 0.06rem 0rem 
+		rgba(0, 0, 0, 0.4);
+}
+.hoverlist{
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: .14rem;
+}
+.hoverlist:hover{
+	color: #66cbff;
 }
 @media screen and (max-width:1200px){
 	.c-nav ul li{
