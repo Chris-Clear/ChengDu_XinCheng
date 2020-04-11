@@ -744,3 +744,18 @@ table {
 .color-515a6e{
 	color: #515a6e;
 }
+@media screen and (max-width:576px){
+	.personLeft{
+		width: 100%;
+	}
+	.personRight{
+		width: 100%;
+		margin-left: 0;
+		margin-top: .2rem;
+		height: auto;
+		overflow: auto;
+	}
+	.personRight .flex_column{
+		width: 10rem;
+	}
+}
