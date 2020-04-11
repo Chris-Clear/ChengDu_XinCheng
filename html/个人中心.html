@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>成都新成</title>
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--分享使用-->
+    <meta itemprop="name" content="" />
+    <meta itemprop="description" name="description" content="" />
+    <meta itemprop="image" content="img_url" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="../lib/page.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/swiper4.1.6.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/EHComponents.css">
+    <link rel="stylesheet" type="text/css" href="../css/vant.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/ly.css">
+    <link rel="stylesheet" type="text/css" href="../css/zyd.css">
+</head>
+
+<body>
+    <section id="app" class="main hgt_full flex_column">    
+        <!-- 头部 -->
+        <common_head activeindex='8'></common_head>
+        <div class="flex_1 overflow_auto ">
+            <div class="index_about container" style="margin-top: 1rem !important;">    
+                <div class="wid100 personArea clearfix">
+                    <div class="personLeft font18r">
+                       <div class="hgt10rem around-center">
+                           <span class="color-333 font24r perTitle">个人中心</span>
+                       </div>
+                       <p class="text-center font24r fw_600">
+                        Hi ,   陈先生
+                       </p>
+                       <p class="color-0172ff font18r text-center m-t-10r">高级用户</p>
+                       <div class="p_inputArea m-t-30r">
+                            <div class="p_ipt between-center l-pad20">
+                                <span class="color-666 font16r">手机号</span>
+                                <input type="number" class="font16r flex_1 text-right color-666 placeholder999" placeholder="请输入手机号" value="15928773529">
+                            </div>
+                            <div class="p_ipt between-center l-pad20 m-t-20r">
+                                <span class="color-666 font16r">邮箱</span>
+                                <input type="text" class="font16r flex_1 text-right color-666 placeholder999" placeholder="请输入邮箱" value="846597146@163.com">
+                            </div>
+                            <div class="p_ipt between-center l-pad20 m-t-20r">
+                                <span class="color-666 font16r">单位名称</span>
+                                <input type="text" class="font16r flex_1 text-right color-666 placeholder999" placeholder="请输入单位名称" value="成都昌达汽修厂">
+                            </div>
+                       </div>
+                       <button class="poiner p_blueBtn font18r color-fff m-t-30r">提交并修改</button>
+                       <div class="p_line m-t-20r m-b-20r"></div>
+                       <button class="poiner p_blueBtn font18r color-fff m-t-30r">找回及修改密码</button>
+                       <button class="poiner p_blueBtn font18r color-fff m-t-30r">退出登录</button>
+                    </div>
+                    <div v-if="!isPowerUser" class="personRight">
+                        <img class="wid100 hgt_full" src="../img/notPowerUser.jpg" alt="" srcset="">
+                    </div>
+                    <div v-else class="personRight">
+                        <div class="hgt_full flex_column">
+                            <div class="center">
+                                <div class="selectArea">
+                                    <div class="select-menu relative">
+                                        <span class="select-menu-name font12r p-l-15 color-333 w70 inline_div only_line">状态</span>
+                                        <input type="text" class="select-value" name="" >
+                                        <ul class="select-menu-ul frequencylist selectmaxHeight" style="text-align: left; opacity: 1;">
+                                            <li v-for="item in productList" :key="item.id" :data-id="item.ID">{{item.name}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="selectArea m-l-20r">
+                                    <div class="select-menu relative">
+                                        <span class="select-menu-name font12r p-l-15 color-333 w70 inline_div only_line">全部型号</span>
+                                        <input type="text" class="select-value" name="" >
+                                        <ul class="select-menu-ul frequencylist selectmaxHeight" style="text-align: left; opacity: 1;">
+                                            <li v-for="item in typeList" :key="item.id" :data-id="item.ID">{{item.name}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="dateSelect m-l-30r">
+                                    <div class="dateInput center" style="white-space: nowrap;">
+                                        <input type="text" name="start_time" autocomplete="off" placeholder="订单时间" class="select-menu  text-center color-333 font12" style="width: 45%;"
+                                               id="sStartTime" onClick="WdatePicker({el:this,maxDate:'#F{$dp.$D(\'sEndTime\')}',dateFmt:'yyyy-MM-dd'})">
+                                        <span class="smhouder"></span>
+                                        <input type="text" name="end_time" autocomplete="off" placeholder="订单时间" class="select-menu  text-center color-333 font12" style="        width: 45%;
+        "
+                                               id="sEndTime" onClick="WdatePicker({el:this,minDate:'#F{$dp.$D(\'sStartTime\')}',dateFmt:'yyyy-MM-dd'})">
+                                    </div>
+                                </div>
+                                <button class="searchBtn around-center   l-h-03rem m-l-30r color-fff">
+                                    <div class="center">
+                                        <img class="wid02rem" src="../img/slice/icon_search.png" alt="" srcset="">
+                                        <span class="m-l-10r font12r">搜索</span>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="m-t-15 m_bothpercent flex_1 overflow_auto">
+                                <table class="table table-striped" id="tabOrder">
+                                    <tbody>
+                                        <tr class="table-header">
+                                            <th>产品名称</th>
+                                            <th>产品型号</th>
+                                            <th>新增入库</th>
+                                            <th>新增出库</th>
+                                            <th>添加日期</th>
+                                            <th>合格证</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        <tr v-for="o in 22" class="font14r" v-cloak>
+                                            <td>平板制动检验台</td>
+                                            <td>54562</td>
+                                            <td>54562</td>
+                                            <td>54562</td>
+                                            <td>2020-02-13 14:49:20</td>
+                                            <td><i class="color-0172ff poiner" @click="layerShow=true">点击查看</i> <i class="color-515a6e">暂无</i></td>
+                                            <td><i class="color-0172ff poiner">下载合格证</i> <i class="color-515a6e">下载合格证</i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- 底部 -->
+            <common_foot></common_foot>
+            <div v-if="layerShow" class="markBox">
+                <div class="mark pad20r" style="width: 80%;padding-bottom: 0 !important;">
+                    <div class="color-333 font18r  overflow_auto" style="min-height: 4rem;max-height: auto;">
+                        <img class="wid100" src="../img/videos02.jpg" alt="" srcset="">
+                    </div>
+                    <div class="around-center hgt10rem">
+                        <button @click="layerShow=false" class="loginBtn poiner wid30rem font20r color-fff">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script type="text/javascript" src="../lib/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="../lib/swiper4.1.6.min.js"></script>
+<script type="text/javascript" src="../lib/con_js.6.23.js"></script>
+<script type="text/javascript" src="../lib/vue.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/vant.min.js"></script>
+<script type="text/javascript" src="../lib/EHComponents.js"></script>
+<script type="text/javascript" src="../script/select.js"></script>
+<script type="text/javascript" src="../lib/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isPowerUser: true,
+            layerShow:false,
+            productList:[{name:'产品1'},{name:'产品1'},{name:'产品1'}],
+            typeList:[{name:'type1'},{name:'产品1'},{name:'产品1'}]
+        },
+        methods:{
+
+        },
+        created: function() {
+
+            // vant.Toast('提示');
+        },
+        updated:function(){
+            
+        }
+    })
+
+
+
+</script>
+
+
+</html>
